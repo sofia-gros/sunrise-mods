@@ -16,6 +16,7 @@ PLAIN = re.compile(r"[A-Za-z0-9][A-Za-z0-9._-]{0,127}")
 ASSETS = {"surface.json": ("surface", "none"), "build-data.tar.xz": ("build-data", "xz")}
 BUILD_DATA = {"functions.json", "internals.json", "loops.json"}
 MAX_BUILD_DATA = 1 << 30  # The SDK tool's unpacked build-data cap.
+MAX_GAME_LOCK = 16 << 20  # The registry tool's cap for the game's Cargo.lock.
 
 
 def download(tag: str, folder: Path, names) -> None:
@@ -84,6 +85,14 @@ def fetch(sha: str, into: Path) -> None:
         archive = ready / "build-data.tar.xz"
         unpack(archive, ready / "build-data")
         archive.unlink()
+        # The game's own lock, which review compares a native mod's requirements with. No SDK asset carries
+        # all of it, so it is read from the build's commit, which names its content.
+        lock = subprocess.run(["gh", "api", "-H", "Accept: application/vnd.github.raw",
+                               f"repos/{REPO}/contents/Cargo.lock?ref={sha}"],
+                              check=True, capture_output=True).stdout
+        if not 0 < len(lock) <= MAX_GAME_LOCK:
+            raise ValueError("the game's Cargo.lock is empty or too large")
+        (ready / "Cargo.lock").write_bytes(lock)
         # A commit directory is only put in the cache after every check passes.
         ready.rename(into / sha)
 

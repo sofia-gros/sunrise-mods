@@ -20,8 +20,8 @@ runs:
     - uses: actions/cache@v4
       with:
         path: registry-data/sdk-data
-        key: registry-sdk-v2-${{ env.SUNRISE_RELEASE_TRUST }}-${{ hashFiles('registry-data/sdk-commits.txt') }}
-        restore-keys: registry-sdk-v2-${{ env.SUNRISE_RELEASE_TRUST }}-
+        key: registry-sdk-v3-${{ env.SUNRISE_RELEASE_TRUST }}-${{ hashFiles('registry-data/sdk-commits.txt') }}
+        restore-keys: registry-sdk-v3-${{ env.SUNRISE_RELEASE_TRUST }}-
     - name: Fetch the signed SDK files
       shell: bash
       run: >-
