@@ -33,9 +33,9 @@ The `mods/`, `collections/` and `sources/` folders hold only `<id>.toml` files.
 1. Check your package: `cargo sunrise-mod check my_mod.smod --key <key> --signature <file>`. Every new
    version is signed.
 2. Fork this repository and add `mods/<id>.toml`, `icons/<id>.png` and at least one screenshot in
-   `screenshots/<id>/`, listed in the entry's `screenshots`. A mod's `id` is the `id` in its `sunrise-mod.toml`.
+   `screenshots/<id>/`, listed in the entry's `screenshots` (a mod in the `library` category needs none). A mod's `id` is the `id` in its `sunrise-mod.toml`.
 3. Open a pull request. Every new version names the stable Sunrise release it was made for (`sunrise`) and
-   your own release asset as its `file`: the `check` workflow downloads it from your repository and tests it.
+   your own release asset as its `file`, named `<id>-<version>` with your kind's extension: the `check` workflow downloads it from your repository and tests it.
    Nothing is staged by hand. The entry needs your project's `key` and the version its `signature`.
    - A row without `sunrise` is from before stable releases. It stays listed as it is, and `check` warns
      about it; it can't be changed, and a new row without `sunrise` is refused.
