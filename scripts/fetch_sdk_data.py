@@ -85,16 +85,25 @@ def fetch(sha: str, into: Path) -> None:
         archive = ready / "build-data.tar.xz"
         unpack(archive, ready / "build-data")
         archive.unlink()
-        # The game's own lock, which review compares a native mod's requirements with. No SDK asset carries
-        # all of it, so it is read from the build's commit, which names its content.
-        lock = subprocess.run(["gh", "api", "-H", "Accept: application/vnd.github.raw",
-                               f"repos/{REPO}/contents/Cargo.lock?ref={sha}"],
-                              check=True, capture_output=True).stdout
-        if not 0 < len(lock) <= MAX_GAME_LOCK:
-            raise ValueError("the game's Cargo.lock is empty or too large")
-        (ready / "Cargo.lock").write_bytes(lock)
         # A commit directory is only put in the cache after every check passes.
         ready.rename(into / sha)
+
+
+def fetch_game_lock(sha: str, folder: Path) -> None:
+    """Keep the game's own lock, which review compares a native mod's requirements with.
+
+    No SDK asset carries all of it, so it is read from the build's commit, which names its content.
+    Without it the SDK data stays usable and review says the comparison was skipped.
+    """
+    result = subprocess.run(["gh", "api", "-H", "Accept: application/vnd.github.raw",
+                             f"repos/{REPO}/contents/Cargo.lock?ref={sha}"], capture_output=True)
+    if result.returncode != 0 or not 0 < len(result.stdout) <= MAX_GAME_LOCK:
+        print(f"::warning::sdk-{sha}: the game's Cargo.lock could not be fetched; "
+              "native dependency requirements are not compared for this build")
+        return
+    partial = folder / "Cargo.lock.partial"
+    partial.write_bytes(result.stdout)
+    partial.rename(folder / "Cargo.lock")
 
 
 def main(inputs: Path, into: Path) -> None:
@@ -115,6 +124,8 @@ def main(inputs: Path, into: Path) -> None:
                 fetch(sha, into)
             except (subprocess.CalledProcessError, OSError, ValueError, KeyError, TypeError, tarfile.TarError) as error:
                 sys.exit(f"sdk-{sha}: {error}")
+        if not (into / sha / "Cargo.lock").is_file():
+            fetch_game_lock(sha, into / sha)
 
 
 if __name__ == "__main__":
