@@ -1,0 +1,67 @@
+id = "seagulls"
+kind = "native-mod"
+name = "Seagulls"
+summary = "Noisy gulls of the coasts that float on the waves, follow your boat and snatch food from your hand; befriend one with fish and it fishes for you."
+description = """
+> **Beta.** Played and tested in single player; multiplayer and balance come later. Reports are welcome on the [issues](https://github.com/EAnathos/sunrise-creatures/issues).
+
+A mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/seagulls-0.1.0/README.md) series: noisy gulls of beaches and stony shores that glide along the
+coast, bob on the waves, follow your boat and snatch food from your hand. Befriend one with fish and it becomes a
+fishing companion. **Requires** [Sunrise Creatures](https://playsunrise.net/mods/creature), the series' library.
+
+## Finding them
+
+Flocks of 2 to 6 live on beaches, stony shores and snowy beaches. By day they soar along the coast, land on the sand,
+the rocks or the roofs, and float on the water; at night they rest. They call often, and laugh now and then.
+
+In creative: the spawn egg (creative tab "Sunrise Creatures").
+
+## Thieves
+
+Hold food in your main hand near a wild seagull and now and then it swoops down and snatches one, cooked fish and
+bread above all, then flies off with it. Hit it and it drops it. It also takes food lying on the ground, and sometimes
+the fish you just reeled in. Sneak, or keep the food in your off hand, and it leaves you alone. Sail out in a boat and
+a seagull may follow you for a while, hovering behind you. Over warm seas, a seagull snatches a gliding flying fish in
+the air when the [Flying Fish](https://github.com/EAnathos/sunrise-creatures/blob/seagulls-0.1.0/mods/flying_fish/README.md) are installed.
+
+## A fishing companion
+
+Throw a raw cod or salmon near a wild seagull: it eats it, and one time in four it becomes your friend. It follows
+you, never steals from you, and stays or follows again when you right-click it; a name tag names it. While you fish,
+it circles over a lucky spot of water, calling: fishing there brings up no junk. About once a minute it flies out,
+plunge-dives into the water and drops the fish it caught at your feet: a cod, sometimes a salmon, rarely a tropical
+fish, and in the flying fish's oceans now and then a flying fish.
+
+## Feathers and meat
+
+Seagulls drop seagull feathers, which make arrows, a brush or a book and quill as a feather does, and raw seagull,
+which cooks in a furnace, a smoker or on a campfire.
+"""
+authors = ["EAnathos"]
+owners = ["EAnathos"]
+license = "MIT"
+source = "https://github.com/EAnathos/sunrise-creatures"
+icon = "icons/seagulls.png"
+categories = ["mobs"]
+tags = ["seagull", "bird", "coast", "ocean", "fishing"]
+screenshots = ["screenshots/seagulls/1-seagulls-seagull-front.png", "screenshots/seagulls/2-seagulls-seagull-back.png"]
+key = "RWR7Wf0HwHmw6+OGAJGXZcp5ccpovW1ONwQb7knb3YqMpWGTi+gpP0Jn"
+
+[[versions]]
+version = "0.1.0"
+published = "2026-11-21"
+game = "26.3"
+file = "seagulls-0.1.0.smod"
+sha256 = "ff9c324e72c83468a2922bb2344cef728b2a479f8e1a41a5199ebe00835c4189"
+signature = """
+untrusted comment: signature from minisign secret key
+RUR7Wf0HwHmw62hpqyzql9wcAh+0L2ODUNFrQf6C/ns0b/Gd4F6xPxPXCXous5l7bNOFKOQKqRxCs2MAW+pyu8/BKtAHIOv+Bgw=
+trusted comment: timestamp:1795268223	file:seagulls-0.1.0.smod	hashed
+fTB0/l4+UHcw3RBbpU39daf9L8V7rl1Qohp8KLQ8HYxcZYFAxDSTG97TW819u5Od07xDGIx2U2xdOfOK8RnsDg==
+"""
+changelog = """
+- First release on Sunrise: seagulls on beaches and stony shores that soar along the coast, float on the water, follow
+  boats and snatch food from hands; befriended with a raw fish, one follows you, dives for fish for you and circles over
+  a lucky fishing spot; over warm seas they catch gliding flying fish (with the Flying Fish); feathers and meat; their
+  own sounds. Needs Sunrise Creatures 0.3.2.
+"""

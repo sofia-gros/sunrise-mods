@@ -5,7 +5,7 @@ summary = "Stinging jellyfish drifting in blooms through the oceans, some glowin
 description = """
 > **Beta.** Played and tested in single player; multiplayer and balance come later. Reports are welcome on the [issues](https://github.com/EAnathos/sunrise-creatures/issues).
 
-A mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/jellyfish-0.1.0/README.md) series: jellyfish drifting in blooms through the oceans, pulsing
+A mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/jellyfish-0.1.1/README.md) series: jellyfish drifting in blooms through the oceans, pulsing
 slowly and trailing long tentacles that sting what brushes them. **Requires**
 [Sunrise Creatures](https://playsunrise.net/mods/creature), the series' library.
 
@@ -41,6 +41,22 @@ categories = ["mobs", "decoration"]
 tags = ["jellyfish", "ocean", "aquatic", "glowing"]
 screenshots = ["screenshots/jellyfish/1-jellyfish-jellyfish-front.png", "screenshots/jellyfish/2-jellyfish-jellyfish-back.png"]
 key = "RWR7Wf0HwHmw6+OGAJGXZcp5ccpovW1ONwQb7knb3YqMpWGTi+gpP0Jn"
+
+[[versions]]
+version = "0.1.1"
+published = "2026-11-21"
+game = "26.3"
+file = "jellyfish-0.1.1.smod"
+sha256 = "33cdde75ac6b3f55b89e4db314b2bd4606a17629c44ecbe4a2d66e2c173b7235"
+signature = """
+untrusted comment: signature from minisign secret key
+RUR7Wf0HwHmw6/93eGBZKXFVlLWXup6LumbCghr4/COtKFX41m4fA7aTW1fOZZm5eYV9m2o/v2BLzrXcd2IEXWbsOq48/kMmDgQ=
+trusted comment: timestamp:1795268223	file:jellyfish-0.1.1.smod	hashed
+pE5BC7NZ3k2i/R3wyLXCprnV+pV8b3o/MepyYO9bKytEi+B8AjmJr2OKJxXpLlKPpJFA2YQmWZoYs8pO9CRuAg==
+"""
+changelog = """
+- Built on the library's shared helpers (Sunrise Creatures 0.3.2), unchanged.
+"""
 
 [[versions]]
 version = "0.1.0"

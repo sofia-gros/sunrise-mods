@@ -5,7 +5,7 @@ summary = "The library of the Sunrise Creatures mods: the creature guide and its
 description = """
 > **Beta.** Played and tested in single player; multiplayer and balance come later. Reports are welcome on the [issues](https://github.com/EAnathos/sunrise-creatures/issues).
 
-The library every mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/creature-0.3.1/README.md) series needs. It adds no creature of its own, but what
+The library every mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/creature-0.3.2/README.md) series needs. It adds no creature of its own, but what
 the creatures share:
 
 - **The creature guide**, given to every player the first time they join a world. Right-click it to open the
@@ -13,13 +13,15 @@ the creatures share:
   and what you found out about it. A lost one is crafted again from a book, a feather and leather. Operators can fill
   it to look through it: `/bestiary unlock <species>` (or `all`) writes down everything about a species, and
   `/bestiary reset` empties it.
-- **The glass jar** (3 glass in a U and an oak slab, makes 2), with Butterflies, Fireflies or Worms installed: it
+- **The glass jar** (3 glass in a U and an oak slab, makes 2), with Butterflies, Worms, Fireflies or Fairies installed: it
   catches their creatures and releases them where you want them to stay. Sneak + right-click places a filled jar on
   display.
 - **The "Sunrise Creatures" creative tab**, with every item of the series.
+- **Feathers**: with the Vulture or the Seagulls installed, their feathers make arrows, a brush and a book and quill
+  as a feather does.
 - Monsters leave the series' creatures alone.
 
-For developers: [SPECS.md](https://github.com/EAnathos/sunrise-creatures/blob/creature-0.3.1/common/SPECS.md) and [CONTRIBUTING.md](https://github.com/EAnathos/sunrise-creatures/blob/creature-0.3.1/CONTRIBUTING.md).
+For developers: [SPECS.md](https://github.com/EAnathos/sunrise-creatures/blob/creature-0.3.2/common/SPECS.md) and [CONTRIBUTING.md](https://github.com/EAnathos/sunrise-creatures/blob/creature-0.3.2/CONTRIBUTING.md).
 """
 authors = ["EAnathos"]
 owners = ["EAnathos"]
@@ -30,6 +32,32 @@ categories = ["library"]
 tags = ["creatures", "bestiary", "glass-jar", "guide"]
 screenshots = ["screenshots/creature/1-bestiary.jpg"]
 key = "RWR7Wf0HwHmw6+OGAJGXZcp5ccpovW1ONwQb7knb3YqMpWGTi+gpP0Jn"
+
+[[versions]]
+version = "0.3.2"
+published = "2026-11-21"
+game = "26.3"
+file = "creature-0.3.2.smod"
+sha256 = "419383e43aa8e23bbc5c30152e206dd1225fa6daeedf41d9944108d23f1b8250"
+signature = """
+untrusted comment: signature from minisign secret key
+RUR7Wf0HwHmw6wdUAez6CbRz9EngIDSHheax/pdI9iGm3Q2RBAGliqop4tdQH3UXpoxtQ4FgW1tZK+hBIKQAqQ9oStK94KMuywg=
+trusted comment: timestamp:1795268222	file:creature-0.3.2.smod	hashed
+NtgGb3e0mMXlr8L+JYMndySzESeo1+s8BUCnIxJmMgQCG3RQ+0pgaiLUWW00pxrBR0VvsWrwhFVn23iYFcvjDw==
+"""
+changelog = """
+- Big fliers (`creature::flight`): the vulture's flight and soaring, moved from the Vulture for the Seagulls; a climb
+  held down (under leaves) gives up after 10 s and glides down to a perch.
+- Hunters (`creature::prey`): a mod can add its creature as a hunter of another mod's prey (`add_hunter`); a hunter of
+  the series' mods goes for its prey itself (`quarry`).
+- The feather recipes (arrows, the brush, the book and quill) with a mod's feather, moved from the Vulture: they take
+  the vulture's and the seagull's feathers (`creature:mod_feathers`).
+- Following a friend in flight (`creature::flight::Follow`), from the Vulture, shared with the Seagulls.
+- Food on the ground (`creature::food`): the nearest wanted item near a creature, and one of it eaten (the Vulture's
+  meat, the Seagulls' fish).
+- Small helpers several mods share: `hand::stack`, `particles::puff`, `friend::sign` (hearts or smoke after a try to
+  befriend), `mob::is_boat`, `aquatic::water_over`.
+"""
 
 [[versions]]
 version = "0.3.1"

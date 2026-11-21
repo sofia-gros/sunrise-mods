@@ -24,5 +24,6 @@ members = [
   { id = "storm_spirits" },
   { id = "jellyfish" },
   { id = "flying_fish" },
+  { id = "seagulls" },
   { id = "vanilla_bestiary" },
 ]

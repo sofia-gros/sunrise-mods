@@ -5,7 +5,7 @@ summary = "A desert vulture you tame with raw chicken, saddle and fly like a pla
 description = """
 > **Beta.** Played and tested in single player; multiplayer and balance come later. Reports are welcome on the [issues](https://github.com/EAnathos/sunrise-creatures/issues).
 
-A mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/vulture-0.2.2/README.md) series: a desert vulture you tame with raw chicken, saddle and fly like
+A mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/vulture-0.2.3/README.md) series: a desert vulture you tame with raw chicken, saddle and fly like
 a plane, with two chests and talons. **Requires** [Sunrise Creatures](https://playsunrise.net/mods/creature), the series' library.
 
 ## Finding one
@@ -61,6 +61,25 @@ categories = ["mobs", "transportation", "adventure"]
 tags = ["vulture", "flying", "mount", "taming", "birds"]
 screenshots = ["screenshots/vulture/1-vulture.jpg", "screenshots/vulture/2-vulture-vulture-front.png", "screenshots/vulture/3-vulture-vulture-back.png"]
 key = "RWR7Wf0HwHmw6+OGAJGXZcp5ccpovW1ONwQb7knb3YqMpWGTi+gpP0Jn"
+
+[[versions]]
+version = "0.2.3"
+published = "2026-11-21"
+game = "26.3"
+file = "vulture-0.2.3.smod"
+sha256 = "fe5e98b4d6c9536a93beb4c1bc97fcd86dfc6d1b31c808c09f3c0259ef503ed7"
+signature = """
+untrusted comment: signature from minisign secret key
+RUR7Wf0HwHmw6won/o2aUFEJXc7MfaPryHizDwrQ2Pa/ki/MAoyDwzKvoxtK6hJVdpM+CgxVvyjUOoUjvdA80Jv86fLOLa2iRgk=
+trusted comment: timestamp:1795268224	file:vulture-0.2.3.smod	hashed
+GW7x0EvhVGHtBzjri0gfcAr8zRyTrl8EfWDjsoyF8EvLIyeAizjynWsZAZFUMB62P7Ct6ilgZsySl3CrZBQFAw==
+"""
+changelog = """
+- Its flight and soaring are the library's now (shared with the Seagulls), unchanged; a climb held down under leaves
+  gives up after 10 s and glides down to a perch instead of hanging there.
+- Its feather's recipes (arrows, the brush, the book and quill) are the library's now. Needs Sunrise Creatures 0.3.2.
+- Following its owner and finding meat on the ground are the library's now, unchanged.
+"""
 
 [[versions]]
 version = "0.2.2"

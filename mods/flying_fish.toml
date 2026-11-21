@@ -5,7 +5,7 @@ summary = "Shoals of flying fish in warm seas that burst out of the water and gl
 description = """
 > **Beta.** Played and tested in single player; multiplayer and balance come later. Reports are welcome on the [issues](https://github.com/EAnathos/sunrise-creatures/issues).
 
-A mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/flying_fish-0.1.0/README.md) series: shoals of flying fish in warm seas that burst out of the
+A mod of the [Sunrise Creatures](https://github.com/EAnathos/sunrise-creatures/blob/flying_fish-0.1.1/README.md) series: shoals of flying fish in warm seas that burst out of the
 water and glide over the waves on their wing-like fins. **Requires**
 [Sunrise Creatures](https://playsunrise.net/mods/creature), the series' library.
 
@@ -43,6 +43,23 @@ categories = ["mobs", "food"]
 tags = ["flying-fish", "fish", "ocean", "aquatic"]
 screenshots = ["screenshots/flying_fish/1-flying_fish-flying_fish-front.png", "screenshots/flying_fish/2-flying_fish-flying_fish-back.png"]
 key = "RWR7Wf0HwHmw6+OGAJGXZcp5ccpovW1ONwQb7knb3YqMpWGTi+gpP0Jn"
+
+[[versions]]
+version = "0.1.1"
+published = "2026-11-21"
+game = "26.3"
+file = "flying_fish-0.1.1.smod"
+sha256 = "ef595cff1fe85df85eace1ccee94e3721e5e14f0ec7248f477575fca7ebcd937"
+signature = """
+untrusted comment: signature from minisign secret key
+RUR7Wf0HwHmw6ycX4R/8QgRyMUWJPMJmt8gZPEQgcGS6/gDuptlQzPXBpGH1Mr04lamWfH3BcXX3KDSxB74uY8kf/4hfgBXyfQo=
+trusted comment: timestamp:1795268223	file:flying_fish-0.1.1.smod	hashed
+YHjjbbbwJWSP9UuCffsXo/KHUpH29APGu/Mmp6vE0g/p0tr/vUileBZTtNH5G/CPRpOG/3WjP1tkFEH/1pc2AA==
+"""
+changelog = """
+- A seagull (with the Seagulls) frightens a shoal, as a dolphin does.
+- Built on the library's shared helpers (Sunrise Creatures 0.3.2), unchanged.
+"""
 
 [[versions]]
 version = "0.1.0"
