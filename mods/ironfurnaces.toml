@@ -30,6 +30,17 @@ categories = ["technology", "utility"]
 tags = ["furnaces", "smelting", "automation", "energy", "generators"]
 
 [[versions]]
+version = "4.4.8"
+published = "2026-11-21"
+game = "26.3"
+file = "ironfurnaces-4.4.8.smod"
+sha256 = "95f8ef7193e5fc22fced5044206d33dd1ee3c00e03be7b3f9a973341d22da9d6"
+changelog = """
+- Updated for the Sunrise Nightly of 2026-11-20 (`9425651`): the furnace and heater screens attach to their menus.
+- The package includes the Apache-2.0 `LICENSE` and `NOTICE`.
+"""
+
+[[versions]]
 version = "4.4.7"
 published = "2026-11-19"
 game = "26.3"

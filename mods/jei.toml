@@ -40,6 +40,16 @@ categories = ["utility", "library"]
 tags = ["recipes", "items", "search", "jei", "loot", "worldgen"]
 
 [[versions]]
+version = "0.5.2"
+published = "2026-11-21"
+game = "26.3"
+file = "jei-0.5.2.smod"
+sha256 = "5315938210a06514c6e80a34012c2b0c91af6b7ee443fa4fb356a977e933e63a"
+changelog = """
+- Updated for the Sunrise Nightly of 2026-11-20 (`9425651`): the item list reads the game's world-scoped creative catalog.
+"""
+
+[[versions]]
 version = "0.5.1"
 published = "2026-11-19"
 game = "26.3"
