@@ -27,6 +27,14 @@ tags = ["motion-blur", "visual", "camera", "cinematic"]
 screenshots = ["screenshots/motion_blur/1-turning.jpg", "screenshots/motion_blur/2-standing-still.jpg", "screenshots/motion_blur/3-settings.jpg"]
 
 [[versions]]
+version = "0.1.1"
+published = "2026-11-21"
+game = "26.3"
+file = "motion_blur-0.1.1.smod"
+sha256 = "bfb2cc7003b65961b6a0cb48636a85ff5a7ef9e67a56d147fff6be65c4f6e6c2"
+changelog = "Repacked for the November 20 Sunrise Nightly with native compatibility metadata."
+
+[[versions]]
 version = "0.1.0"
 published = "2026-11-19"
 game = "26.3"
