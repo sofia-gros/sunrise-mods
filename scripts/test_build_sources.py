@@ -95,6 +95,7 @@ class Entries(Case):
                 "manifest": "mods/trail_atlas/sunrise-mod.toml",
                 "track": {"branch": "main"},
             }],
+            "collections": [],
         })
 
     def registry_with_icon(self) -> tuple[Path, Path]:
@@ -166,7 +167,7 @@ class Entries(Case):
         out = registry / "sources.json"
         with redirect_stdout(io.StringIO()):
             self.assertEqual(bs.build(registry, out), 0)
-        self.assertEqual(json.loads(out.read_text()), {"format": 1, "sources": []})
+        self.assertEqual(json.loads(out.read_text()), {"format": 1, "sources": [], "collections": []})
 
     def test_each_bad_field_is_refused(self):
         for change in [
@@ -226,6 +227,52 @@ class Entries(Case):
         registry = self.registry({"trail_atlas.toml": ENTRY})
         (registry / "sources" / "linked.toml").symlink_to(registry / "sources" / "trail_atlas.toml")
         self.assertTrue(bs.read(registry)[1])
+
+
+class Collections(Case):
+    COLLECTION = {
+        "id": "trail_tools",
+        "name": "Trail Tools",
+        "summary": "A set of tools for making trails.",
+        "description": "Pick and choose the tools you need.",
+        "owners": ["driftwood"],
+        "icon": f"{bs.SITE}icons/trail_tools.png?v=0123456789ab",
+        "members": [{"id": "trail_atlas"}, {"id": "camp_markers", "default": False}],
+    }
+
+    def test_complete_collection_publishes_the_registry_shape_with_a_relative_icon(self):
+        registry = self.registry({
+            "trail_atlas.toml": ENTRY,
+            "camp_markers.toml": edited(id='"camp_markers"', repo_id="2"),
+        })
+        index = registry / "index.json"
+        index.write_text(json.dumps({"collections": [self.COLLECTION]}))
+        out = registry / "sources.json"
+        with redirect_stdout(io.StringIO()):
+            self.assertEqual(bs.build(registry, out, index=index), 0)
+        self.assertEqual(json.loads(out.read_text())["collections"], [
+            {**self.COLLECTION, "icon": "icons/trail_tools.png"},
+        ])
+
+    def test_collection_stays_registry_only_if_even_an_unticked_member_has_no_listing(self):
+        registry = self.registry({"trail_atlas.toml": ENTRY})
+        index = registry / "index.json"
+        index.write_text(json.dumps({"collections": [self.COLLECTION]}))
+        out = registry / "sources.json"
+        with redirect_stdout(io.StringIO()):
+            self.assertEqual(bs.build(registry, out, index=index), 0)
+        published = json.loads(out.read_text())
+        self.assertEqual(published["collections"], [])
+        self.assertEqual([source["id"] for source in published["sources"]], ["trail_atlas"])
+
+    def test_check_requires_the_registry_index_for_collection_definitions(self):
+        registry = self.registry({"trail_atlas.toml": ENTRY})
+        folder = registry / "collections"
+        folder.mkdir()
+        (folder / "trail_tools.toml").touch()
+        with redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()) as errors:
+            self.assertEqual(bs.check(registry, registry), 1)
+        self.assertIn("require SUNRISE_REGISTRY_INDEX", errors.getvalue())
 
 
 class Check(Case):

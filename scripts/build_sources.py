@@ -4,7 +4,7 @@
     python3 -I scripts/build_sources.py check <base> <head>      # a pull request: every entry, then GitHub for new or changed ones
     python3 -I scripts/build_sources.py build <registry> --out site/sources.json
 
-Set SUNRISE_REGISTRY_INDEX to the freshly built registry index when listings include icons.
+Set SUNRISE_REGISTRY_INDEX to the freshly built registry index for source icons and collections.
 A listing says only that a public repository holds a Sunrise mod at a path on a branch or release. Nothing here
 builds or runs the mod. An entry supplies no URLs.
 """
@@ -147,17 +147,27 @@ def read(registry: Path) -> tuple[dict[str, tuple[bytes, dict]], list[str]]:
     return entries, errors
 
 
-def check_icons(registry: Path, entries: dict[str, tuple[bytes, dict]], index: Path | None) -> list[str]:
-    """Reuse the registry build's image checks; its icon URL fingerprints the validated bytes."""
+def registry_metadata(
+    registry: Path, entries: dict[str, tuple[bytes, dict]], index: Path | None,
+) -> tuple[list[dict], list[str]]:
+    """Reuse the registry build's icon validation and its projection of collections/<id>.toml."""
     icons = {id_: parsed["icon"] for id_, (_, parsed) in entries.items() if "icon" in parsed}
-    if not icons:
-        return []
     if index is None:
-        return ["source icons require SUNRISE_REGISTRY_INDEX to name the freshly built registry index"]
+        if icons or any((registry / "collections").glob("*.toml")):
+            return [], ["source icons and collections require SUNRISE_REGISTRY_INDEX to name the freshly built registry index"]
+        return [], []
     try:
-        checked = {p["id"]: p.get("icon") for p in json.loads(index.read_bytes())["projects"]}
+        published = json.loads(index.read_bytes())
+        checked = {p["id"]: p.get("icon") for p in published["projects"]} if icons else {}
+        collections = [
+            {**row, "icon": f"icons/{row['id']}.png"}
+            for row in published.get("collections", [])
+            if all(member["id"] in entries for member in row["members"])
+        ]
     except (OSError, ValueError, TypeError, KeyError, AttributeError) as e:
-        return [f"cannot read the registry index for source icons: {e}"]
+        return [], [f"cannot read the registry index for sources: {e}"]
+
+    # The index's icon URL fingerprints the validated bytes.
     errors = []
     for id_, icon in icons.items():
         path = registry / icon
@@ -176,12 +186,13 @@ def check_icons(registry: Path, entries: dict[str, tuple[bytes, dict]], index: P
             continue
         if checked[id_] != f"{SITE}{icon}?v={digest}":
             errors.append(f"{where} does not match the validated project icon in the registry index")
-    return errors
+    return collections, errors
 
 
-def document(entries: dict[str, tuple[bytes, dict]]) -> bytes:
+def document(entries: dict[str, tuple[bytes, dict]], collections: list[dict]) -> bytes:
     sources = [parsed for _, (_, parsed) in sorted(entries.items())]
-    text = json.dumps({"format": 1, "sources": sources}, indent=1, ensure_ascii=False).encode() + b"\n"
+    payload = {"format": 1, "sources": sources, "collections": collections}
+    text = json.dumps(payload, indent=1, ensure_ascii=False).encode() + b"\n"
     if len(text) > MAX_JSON:
         raise Invalid(f"sources.json would be {len(text)} bytes; at most {MAX_JSON}")
     return text
@@ -281,9 +292,10 @@ def confirm(parsed: dict, api=gh_api, fetch=raw_file) -> str:
 def check(base: Path, head: Path, api=gh_api, fetch=raw_file, *, index: Path | None = None) -> int:
     old, _ = read(base)
     new, errors = read(head)
-    errors.extend(check_icons(head, new, index))
+    collections, metadata_errors = registry_metadata(head, new, index)
+    errors.extend(metadata_errors)
     try:
-        document(new)
+        document(new, collections)
     except Invalid as e:
         errors.append(str(e))
     for id_ in sorted(set(old) - set(new)):
@@ -303,9 +315,10 @@ def check(base: Path, head: Path, api=gh_api, fetch=raw_file, *, index: Path | N
 
 def build(registry: Path, out: Path, *, index: Path | None = None) -> int:
     entries, errors = read(registry)
-    errors.extend(check_icons(registry, entries, index))
+    collections, metadata_errors = registry_metadata(registry, entries, index)
+    errors.extend(metadata_errors)
     try:
-        text = document(entries)
+        text = document(entries, collections)
     except Invalid as e:
         errors.append(str(e))
     for e in errors:
@@ -313,7 +326,7 @@ def build(registry: Path, out: Path, *, index: Path | None = None) -> int:
     if errors:
         return 1
     out.write_bytes(text)
-    print(f"{out}: {len(entries)} sources")
+    print(f"{out}: {len(entries)} sources, {len(collections)} {'collection' if len(collections) == 1 else 'collections'}")
     return 0
 
 

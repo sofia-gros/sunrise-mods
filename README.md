@@ -152,6 +152,14 @@ icon = "icons/trail_atlas.png"                  # optional: the project's icon i
 - Removing a listing takes the mod off the list; players who built it keep their copy. Rename a moved repository
   in the listing (GitHub's new `owner/name`; its id stays the same).
 
+`collections/<id>.toml` defines a collection for both lists. `sources.json` includes a `collections` array with
+only the collections for which **every** member has a source listing, including members unticked by default.
+Otherwise the collection stays in `index.json` only. A source collection has the same fields and member order
+as in `index.json`: `id`, `name`, `summary`, optional `description`, `owners`, `icon`, and `members`. A member
+has an `id`; `default: false` starts it unticked, and an omitted `default` starts it ticked. The only difference
+is that the source collection's `icon` is the Pages-relative `icons/<id>.png`. The registry build still refuses
+invalid collection members and members not listed in `mods/`; a missing listing in `sources/` isn't an error.
+
 ## How it works
 
 Both workflows build `cargo-sunrise-mod` and the release verifier from the `sunrise-org/sunrise` commit named
@@ -181,11 +189,11 @@ publishes the next one: `check` then warns and judges a pull request against the
   author's release, under the file's own name, with a stable native build's descriptor and archives beside it.
   It then reads GitHub's
   download count of each listed file's release asset and the stars of each project's source repository
-  (`scripts/fetch_counts.py`), builds `index.json` again with them, writes `sources.json` from `sources/`
+  (`scripts/fetch_counts.py`), builds `index.json` again with them, writes `sources.json`
   (`scripts/build_sources.py build`, without asking GitHub), and deploys both to GitHub Pages together with
   `icons/` and `screenshots/`. For both `check` and `build`, `SUNRISE_REGISTRY_INDEX` points to the freshly built
-  `index.json` used to verify source icons. A count GitHub fails to answer (other than a repository that is
-  gone) stops the run before it deploys, so the last good index stays live.
+  `index.json` used to verify source icons and select source collections. A count GitHub fails to answer
+  (other than a repository that is gone) stops the run before it deploys, so the last good index stays live.
   Both workflows keep the downloaded files in an Actions cache, so our own runs fetch only files they haven't
   seen and stay out of the download counts.
 - **`dco`**: every commit carries a `Signed-off-by:` line for its author.
