@@ -5,3 +5,4 @@ repo = "EAnathos/sunrise-creatures"
 repo_id = 1449407242
 manifest = "mods/vanilla_bestiary/sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/vanilla_bestiary.png"

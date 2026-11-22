@@ -5,3 +5,4 @@ repo = "Joeypc6/IronFurnaces-Sunrise"
 repo_id = 1462487877
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/ironfurnaces.png"

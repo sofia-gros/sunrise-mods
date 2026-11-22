@@ -5,3 +5,4 @@ repo = "Zekrenlight/better-inventory"
 repo_id = 1464968980
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/better_inventory.png"

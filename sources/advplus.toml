@@ -5,3 +5,4 @@ repo = "Zekrenlight/advancements-plus"
 repo_id = 1464968300
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/advplus.png"

@@ -5,3 +5,4 @@ repo = "Zekrenlight/statistics-plus"
 repo_id = 1464968402
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/statsplus.png"

@@ -5,3 +5,4 @@ repo = "Zekrenlight/sunnyf3"
 repo_id = 1464968518
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/sunnyf3.png"

@@ -5,3 +5,4 @@ repo = "Zekrenlight/frontier"
 repo_id = 1465013078
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/frontier.png"

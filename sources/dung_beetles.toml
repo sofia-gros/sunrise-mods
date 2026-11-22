@@ -5,3 +5,4 @@ repo = "EAnathos/sunrise-creatures"
 repo_id = 1449407242
 manifest = "mods/dung_beetles/sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/dung_beetles.png"

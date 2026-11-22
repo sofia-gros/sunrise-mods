@@ -5,3 +5,4 @@ repo = "Zekrenlight/chatty"
 repo_id = 1464968880
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/chatty.png"

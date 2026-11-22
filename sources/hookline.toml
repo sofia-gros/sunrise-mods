@@ -5,3 +5,4 @@ repo = "Zekrenlight/hookline"
 repo_id = 1464968076
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/hookline.png"

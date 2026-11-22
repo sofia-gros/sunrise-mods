@@ -5,3 +5,4 @@ repo = "Joeypc6/Jade-Sunrise"
 repo_id = 1463888576
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/jade.png"

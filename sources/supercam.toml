@@ -5,3 +5,4 @@ repo = "Zekrenlight/supercam"
 repo_id = 1464968782
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/supercam.png"

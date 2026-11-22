@@ -5,3 +5,4 @@ repo = "Joeypc6/JEI-Sunrise"
 repo_id = 1460980278
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/jei.png"

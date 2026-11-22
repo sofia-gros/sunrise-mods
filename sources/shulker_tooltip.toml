@@ -5,3 +5,4 @@ repo = "Flo-bot-png/shulker-tooltip"
 repo_id = 1465931024
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/shulker_tooltip.png"

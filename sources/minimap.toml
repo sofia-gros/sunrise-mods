@@ -5,3 +5,4 @@ repo = "sunrise-org/sunrise-minimap"
 repo_id = 1462125350
 manifest = "sunrise-mod.toml"
 track = { branch = "main" }
+icon = "icons/minimap.png"
