@@ -1,5 +1,5 @@
-"""The Nightly source list: `sources/<id>.toml` entries, checked and published as `sources.json` (README.md,
-"Source mods").
+"""The Nightly source list: `sources/<id>.toml` entries, checked and published as `sources.json` (format 1)
+and `sources-2.json` (format 2, adding icons and collections) beside it (README.md, "Source mods").
 
     python3 -I scripts/build_sources.py check <base> <head>      # a pull request: every entry, then GitHub for new or changed ones
     python3 -I scripts/build_sources.py build <registry> --out site/sources.json
@@ -189,13 +189,27 @@ def registry_metadata(
     return collections, errors
 
 
-def document(entries: dict[str, tuple[bytes, dict]], collections: list[dict]) -> bytes:
+V2 = "sources-2.json"
+
+
+def document(entries: dict[str, tuple[bytes, dict]], collections: list[dict]) -> tuple[bytes, bytes]:
+    """`sources.json` (format 1) and `sources-2.json` (format 2).
+
+    Released launchers refuse any field format 1 doesn't name, so format 1 keeps exactly its first fields;
+    icons and collections are only in format 2.
+    """
     sources = [parsed for _, (_, parsed) in sorted(entries.items())]
-    payload = {"format": 1, "sources": sources, "collections": collections}
-    text = json.dumps(payload, indent=1, ensure_ascii=False).encode() + b"\n"
-    if len(text) > MAX_JSON:
-        raise Invalid(f"sources.json would be {len(text)} bytes; at most {MAX_JSON}")
-    return text
+    first = [{key: value for key, value in parsed.items() if key != "icon"} for parsed in sources]
+    texts = []
+    for name, payload in (
+        ("sources.json", {"format": 1, "sources": first}),
+        (V2, {"format": 2, "sources": sources, "collections": collections}),
+    ):
+        text = json.dumps(payload, indent=1, ensure_ascii=False).encode() + b"\n"
+        if len(text) > MAX_JSON:
+            raise Invalid(f"{name} would be {len(text)} bytes; at most {MAX_JSON}")
+        texts.append(text)
+    return texts[0], texts[1]
 
 
 def gh_api(path: str):
@@ -318,14 +332,15 @@ def build(registry: Path, out: Path, *, index: Path | None = None) -> int:
     collections, metadata_errors = registry_metadata(registry, entries, index)
     errors.extend(metadata_errors)
     try:
-        text = document(entries, collections)
+        first, second = document(entries, collections)
     except Invalid as e:
         errors.append(str(e))
     for e in errors:
         print(f"error: {e}", file=sys.stderr)
     if errors:
         return 1
-    out.write_bytes(text)
+    out.write_bytes(first)
+    out.with_name(V2).write_bytes(second)
     print(f"{out}: {len(entries)} sources, {len(collections)} {'collection' if len(collections) == 1 else 'collections'}")
     return 0
 

@@ -95,7 +95,6 @@ class Entries(Case):
                 "manifest": "mods/trail_atlas/sunrise-mod.toml",
                 "track": {"branch": "main"},
             }],
-            "collections": [],
         })
 
     def registry_with_icon(self) -> tuple[Path, Path]:
@@ -115,7 +114,11 @@ class Entries(Case):
         out = registry / "sources.json"
         with redirect_stdout(io.StringIO()):
             self.assertEqual(bs.build(registry, out, index=index), 0)
-        self.assertEqual(json.loads(out.read_text())["sources"][0]["icon"], ICON_PATH)
+        self.assertEqual(json.loads((registry / bs.V2).read_text())["sources"][0]["icon"], ICON_PATH)
+        first = json.loads(out.read_text())
+        self.assertEqual(first["format"], 1)
+        self.assertNotIn("icon", first["sources"][0])
+        self.assertNotIn("collections", first)
 
     def test_a_missing_icon_stops_the_build(self):
         registry, index = self.registry_with_icon()
@@ -167,7 +170,8 @@ class Entries(Case):
         out = registry / "sources.json"
         with redirect_stdout(io.StringIO()):
             self.assertEqual(bs.build(registry, out), 0)
-        self.assertEqual(json.loads(out.read_text()), {"format": 1, "sources": [], "collections": []})
+        self.assertEqual(json.loads(out.read_text()), {"format": 1, "sources": []})
+        self.assertEqual(json.loads((registry / bs.V2).read_text()), {"format": 2, "sources": [], "collections": []})
 
     def test_each_bad_field_is_refused(self):
         for change in [
@@ -250,7 +254,8 @@ class Collections(Case):
         out = registry / "sources.json"
         with redirect_stdout(io.StringIO()):
             self.assertEqual(bs.build(registry, out, index=index), 0)
-        self.assertEqual(json.loads(out.read_text())["collections"], [
+        self.assertNotIn("collections", json.loads(out.read_text()))
+        self.assertEqual(json.loads((registry / bs.V2).read_text())["collections"], [
             {**self.COLLECTION, "icon": "icons/trail_tools.png"},
         ])
 
@@ -261,7 +266,8 @@ class Collections(Case):
         out = registry / "sources.json"
         with redirect_stdout(io.StringIO()):
             self.assertEqual(bs.build(registry, out, index=index), 0)
-        published = json.loads(out.read_text())
+        published = json.loads((registry / bs.V2).read_text())
+        self.assertEqual(published["format"], 2)
         self.assertEqual(published["collections"], [])
         self.assertEqual([source["id"] for source in published["sources"]], ["trail_atlas"])
 

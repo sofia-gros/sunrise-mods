@@ -145,14 +145,18 @@ icon = "icons/trail_atlas.png"                  # optional: the project's icon i
 - Except for `icon`, every key is required and no others are allowed. The `Cargo.toml` beside the manifest is the
   mod's crate, and the manifest needs a `[native]` table: a content-only mod is listed in `mods/` as a file instead.
 - `icon`, when present, is `icons/<id>.png` and must match the same project's validated icon in `index.json`:
-  a square PNG, 64–1024 px per side and at most 256 KiB. `sources.json` keeps `format: 1` and publishes the
-  path relative to the registry's Pages URL; it omits `icon` for listings without one.
+  a square PNG, 64–1024 px per side and at most 256 KiB. `sources-2.json` publishes the path relative to
+  the registry's Pages URL; it omits `icon` for listings without one.
 - One repository may hold several mods, each with its own listing and manifest path.
 - A listing has no URLs. The launcher resolves source addresses from `repo` and the resolved commit.
 - Removing a listing takes the mod off the list; players who built it keep their copy. Rename a moved repository
   in the listing (GitHub's new `owner/name`; its id stays the same).
 
-`collections/<id>.toml` defines a collection for both lists. `sources.json` includes a `collections` array with
+Two files are published from the same listings. `sources.json` is `format: 1` with exactly the listing fields
+above except `icon`: launchers up to 1.1.3 refuse any other field, so it never gains one. `sources-2.json` is
+`format: 2`: the same listings with `icon`, plus `collections`.
+
+`collections/<id>.toml` defines a collection for both lists. `sources-2.json` includes a `collections` array with
 only the collections for which **every** member has a source listing, including members unticked by default.
 Otherwise the collection stays in `index.json` only. A source collection has the same fields and member order
 as in `index.json`: `id`, `name`, `summary`, optional `description`, `owners`, `icon`, and `members`. A member
