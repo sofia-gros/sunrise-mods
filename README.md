@@ -193,8 +193,8 @@ publishes the next one: `check` then warns and judges a pull request against the
   author's release, under the file's own name, with a stable native build's descriptor and archives beside it.
   It then reads GitHub's
   download count of each listed file's release asset and the stars of each project's source repository
-  (`scripts/fetch_counts.py`), builds `index.json` again with them, writes `sources.json`
-  (`scripts/build_sources.py build`, without asking GitHub), and deploys both to GitHub Pages together with
+  (`scripts/fetch_counts.py`), builds `index.json` again with them, writes `sources.json` and
+  `sources-2.json` (`scripts/build_sources.py build`, without asking GitHub), and deploys them to GitHub Pages together with
   `icons/` and `screenshots/`. For both `check` and `build`, `SUNRISE_REGISTRY_INDEX` points to the freshly built
   `index.json` used to verify source icons and select source collections. A count GitHub fails to answer
   (other than a repository that is gone) stops the run before it deploys, so the last good index stays live.
