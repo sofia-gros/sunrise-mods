@@ -1,0 +1,19 @@
+version = "0.3.1"
+kind = "native-mod"
+tag = "v0.3.1"
+published = "2026-11-23T21:35:41Z"
+sunrise = "dev-2026-11-22-7cfdf81"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml@refs/tags/release-v1"
+dependencies = []
+
+[file]
+url = "https://github.com/arismoko/macaws_doors/releases/download/v0.3.1/mcwdoors-0.3.1.smod"
+size = 1585960
+sha256 = "78489dca9e8c8cf39746b9c118110a2f0e46e829393763f1b6a213b1255157ab"
+attestation = "https://github.com/arismoko/macaws_doors/releases/download/v0.3.1/mcwdoors-0.3.1.smod.sigstore.json"
+
+[page]
+url = "https://github.com/arismoko/macaws_doors/releases/download/v0.3.1/mcwdoors-0.3.1.page.tar"
+size = 708608
+sha256 = "6c55874366c3d2422b378a4e99e888171966716005e34ca2aebc77129024d931"
+attestation = "https://github.com/arismoko/macaws_doors/releases/download/v0.3.1/mcwdoors-0.3.1.page.tar.sigstore.json"
