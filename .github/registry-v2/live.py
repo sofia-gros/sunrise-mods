@@ -21,6 +21,7 @@ LIMITS = {
 ICON_LIMIT = 256 << 10  # sunrise_mod_package::icon::MAX_ICON.
 SCREENSHOT_LIMIT = 5 << 20  # sunrise_mod_package::page::MAX_SCREENSHOT_BYTES.
 PROJECT = re.compile(r"[0-9A-Za-z]{8}")  # Same Modrinth ID rule as registry-bot.
+COLLECTION = re.compile(r"[0-9a-z_-]+")  # registry-bot's slug rule.
 IMAGE = re.compile(r"([0-9a-f]{64})\.(png|jpg)")
 ERRORS = (KeyError, OSError, TypeError, ValueError, tarfile.TarError, subprocess.CalledProcessError)
 
@@ -71,18 +72,21 @@ def verify(root, key, bot):
     if index["schema"] != 2 or type(serial) is not int or not 0 <= serial < 2**64:
         raise ValueError("unsupported signed index schema or serial")
     refs = {}
-    for project in index["projects"]:
-        project_id = project["id"]
-        if not PROJECT.fullmatch(project_id):
-            raise ValueError("invalid signed project ID")
-        prefix = f"pages/{project_id}/"
-        listed = [(project["icon"], ICON_LIMIT)] + [
-            (shot["path"], SCREENSHOT_LIMIT) for shot in project["screenshots"]
-        ]
+    # An index signed before collections existed has no such field.
+    owners = [(project["id"], PROJECT, [(project["icon"], ICON_LIMIT)] + [
+        (shot["path"], SCREENSHOT_LIMIT) for shot in project["screenshots"]
+    ]) for project in index["projects"]] + [
+        (collection["id"], COLLECTION, [(collection["icon"], ICON_LIMIT)])
+        for collection in index.get("collections", [])
+    ]
+    for owner, shape, listed in owners:
+        if not shape.fullmatch(owner):
+            raise ValueError("invalid signed project or collection ID")
+        prefix = f"pages/{owner}/"
         for name, limit in listed:
             image = IMAGE.fullmatch(name.removeprefix(prefix)) if name.startswith(prefix) else None
             if not image:
-                raise ValueError("signed image path is not content-addressed under its project")
+                raise ValueError("signed image path is not content-addressed under its owner")
             refs[name] = (min(refs.get(name, (limit, ""))[0], limit), image[1])
     return Index(serial, body, refs)
 

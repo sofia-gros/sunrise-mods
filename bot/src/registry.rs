@@ -18,6 +18,7 @@ pub struct Registry {
     pub release_workflow: WorkflowUse,
     pub categories: Vec<Category>,
     pub projects: BTreeMap<ProjectId, ProjectEntry>,
+    pub collections: BTreeMap<Slug, Collection>,
     pub fits: BTreeMap<ProjectId, BTreeMap<Version, FitRelease>>,
     pub builds: Vec<Build>,
     pub revoked: Vec<Revocation>,
@@ -81,6 +82,8 @@ fn load_inner(checkout: &Path, generated: bool) -> Result<Registry, Vec<String>>
             "expected a regular public key file",
         );
     }
+    let collections_root = root.join("collections");
+    let collections_dir = top.remove(OsStr::new("collections"));
     let fit_path = root.join("fit");
     let fit_dir = top.remove(OsStr::new("fit"));
     if !generated && fit_dir.is_some() {
@@ -267,6 +270,14 @@ fn load_inner(checkout: &Path, generated: bool) -> Result<Registry, Vec<String>>
             }
         }
     }
+    let collections = match collections_dir {
+        Some(Entry::Directory) => read_collections(&mut tree, &collections_root, &projects),
+        Some(Entry::File) => {
+            tree.problem(&collections_root, "expected a collections directory");
+            BTreeMap::new()
+        }
+        None => BTreeMap::new(),
+    };
     let mut revocations = BTreeSet::new();
     for row in &revoked {
         if !revocations.insert((&row.project, &row.sha256)) {
@@ -312,10 +323,82 @@ fn load_inner(checkout: &Path, generated: bool) -> Result<Registry, Vec<String>>
         release_workflow: release_workflow.uses,
         categories,
         projects,
+        collections,
         fits,
         builds,
         revoked,
     })
+}
+
+fn read_collections(
+    tree: &mut Tree<'_>,
+    dir: &Path,
+    projects: &BTreeMap<ProjectId, ProjectEntry>,
+) -> BTreeMap<Slug, Collection> {
+    let mut entries = tree.list(dir);
+    let files: Vec<_> = entries
+        .keys()
+        .filter(|name| Path::new(name).extension() == Some(OsStr::new("toml")))
+        .cloned()
+        .collect();
+    let mut collections = BTreeMap::new();
+    for name in files {
+        let file = dir.join(&name);
+        let entry = entries.remove(&name);
+        let id = Path::new(&name)
+            .file_stem()
+            .and_then(OsStr::to_str)
+            .and_then(|stem| Slug::parse(stem.to_owned()).ok());
+        let Some(id) = id else {
+            tree.problem(
+                &file,
+                "expected a <collection>.toml file named by an ID using a-z, 0-9, '-' or '_'",
+            );
+            continue;
+        };
+        let icon_name = format!("{}.png", id.as_str());
+        let icon = dir.join(&icon_name);
+        match entries.remove(OsStr::new(&icon_name)) {
+            Some(Entry::File) => tree.icon(&icon),
+            _ => tree.problem(&icon, "expected the collection's PNG icon"),
+        }
+        let Some(collection) = tree.toml::<Collection>(&file, entry) else {
+            continue;
+        };
+        if collection.id != id {
+            tree.problem(&file, "collection ID must match the file name");
+        }
+        if ProjectId::parse(id.as_str().to_owned()).is_ok_and(|id| projects.contains_key(&id)) {
+            tree.problem(&file, "collection ID is the ID of a project");
+        }
+        if collection.members.len() < 2 {
+            tree.problem(&file, "a collection needs at least two members");
+        }
+        if !collection.members.iter().any(|member| member.default) {
+            tree.problem(&file, "at least one member must be selected by default");
+        }
+        let mut seen = BTreeSet::new();
+        for member in &collection.members {
+            if !projects.contains_key(&member.project) {
+                tree.problem(
+                    &file,
+                    format!(
+                        "member {} is not a registered project",
+                        member.project.as_str()
+                    ),
+                );
+            }
+            if !seen.insert(&member.project) {
+                tree.problem(
+                    &file,
+                    format!("duplicate member {}", member.project.as_str()),
+                );
+            }
+        }
+        collections.insert(id, collection);
+    }
+    tree.unknown(dir, entries);
+    collections
 }
 
 fn read_releases(

@@ -15,6 +15,7 @@ struct Index<'a> {
     builds: &'a [Build],
     categories: &'a [Category],
     projects: Vec<IndexProject<'a>>,
+    collections: Vec<IndexCollection<'a>>,
     revoked: &'a [Revocation],
 }
 
@@ -43,6 +44,17 @@ struct IndexProject<'a> {
 }
 
 #[derive(Serialize)]
+struct IndexCollection<'a> {
+    id: &'a Slug,
+    name: &'a Text,
+    summary: &'a Text,
+    description: &'a str,
+    owners: &'a [Login],
+    icon: String,
+    members: Vec<&'a Member>,
+}
+
+#[derive(Serialize)]
 struct IndexScreenshot<'a> {
     path: String,
     caption: &'a str,
@@ -68,6 +80,26 @@ struct IndexRelease<'a> {
     dependencies: &'a [Dependency],
 }
 
+/// Copies a validated image to `pages/<owner>/<sha256>.<png|jpg>` and returns that public path.
+fn stage(source: &Path, pages: &Path, owner: &str) -> io::Result<String> {
+    let bytes = fs::read(source)?;
+    // Select the public extension from the bytes, not the author's filename.
+    let extension = if bytes.starts_with(b"\x89PNG\r\n\x1a\n") {
+        "png"
+    } else if bytes.starts_with(b"\xff\xd8\xff") {
+        "jpg"
+    } else {
+        return Err(io::Error::new(
+            io::ErrorKind::InvalidData,
+            "expected a PNG or JPEG image",
+        ));
+    };
+    let digest = sunrise_release_sign::sha256_hex(&bytes);
+    let file = format!("{digest}.{extension}");
+    fs::write(pages.join(owner).join(&file), bytes)?;
+    Ok(format!("pages/{owner}/{file}"))
+}
+
 pub fn write(
     registry: &Registry,
     checkout: &Path,
@@ -88,26 +120,8 @@ pub fn write(
             let project = &entry.project;
             let id = project.id.as_str();
             let source = checkout.join("registry/projects").join(id).join("page");
-            let target = pages.join(id);
-            fs::create_dir(&target)?;
-            let stage = |path: &RelativePath| -> io::Result<String> {
-                let bytes = fs::read(source.join(path.as_str()))?;
-                // Select the public extension from the bytes, not the author's filename.
-                let extension = if bytes.starts_with(b"\x89PNG\r\n\x1a\n") {
-                    "png"
-                } else if bytes.starts_with(b"\xff\xd8\xff") {
-                    "jpg"
-                } else {
-                    return Err(io::Error::new(
-                        io::ErrorKind::InvalidData,
-                        "expected a PNG or JPEG image",
-                    ));
-                };
-                let digest = sunrise_release_sign::sha256_hex(&bytes);
-                let file = format!("{digest}.{extension}");
-                fs::write(target.join(&file), bytes)?;
-                Ok(format!("pages/{id}/{file}"))
-            };
+            fs::create_dir(pages.join(id))?;
+            let stage = |path: &RelativePath| stage(&source.join(path.as_str()), &pages, id);
             let fit = registry.fits.get(&project.id);
             Ok(IndexProject {
                 id: &project.id,
@@ -160,6 +174,38 @@ pub fn write(
                     .collect(),
             })
         })
+        .collect::<io::Result<Vec<_>>>()?;
+    let listed: std::collections::BTreeSet<_> = projects.iter().map(|project| project.id).collect();
+    let collections = registry
+        .collections
+        .iter()
+        .filter_map(|(id, collection)| {
+            // A member appears once its project is listed; the card needs what every
+            // collection needs: two members and one selected by default.
+            let members: Vec<_> = collection
+                .members
+                .iter()
+                .filter(|member| listed.contains(&member.project))
+                .collect();
+            (members.len() >= 2 && members.iter().any(|member| member.default))
+                .then_some((id, collection, members))
+        })
+        .map(|(id, collection, members)| {
+            let id_text = id.as_str();
+            fs::create_dir(pages.join(id_text))?;
+            let icon = checkout
+                .join("registry/collections")
+                .join(format!("{id_text}.png"));
+            Ok(IndexCollection {
+                id,
+                name: &collection.name,
+                summary: &collection.summary,
+                description: &collection.description,
+                owners: &collection.owners,
+                icon: stage(&icon, &pages, id_text)?,
+                members,
+            })
+        })
         .collect::<io::Result<_>>()?;
     let index = Index {
         schema: 2,
@@ -168,6 +214,7 @@ pub fn write(
         builds: &registry.builds,
         categories: &registry.categories,
         projects,
+        collections,
         revoked: &registry.revoked,
     };
     // Rename over the destination so an existing index.json symlink is never followed.
