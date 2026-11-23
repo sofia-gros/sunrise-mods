@@ -1,0 +1,18 @@
+version = "0.3.2"
+tag = "v0.3.2"
+published = "2026-11-23T15:04:09Z"
+sunrise = "dev-2026-11-22-7cfdf81"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml@refs/tags/release-v1"
+dependencies = []
+
+[file]
+url = "https://github.com/arismoko/yungs_better_dungeons/releases/download/v0.3.2/betterdungeons-0.3.2.smod"
+size = 127856
+sha256 = "6cd6c187c47c88146712d36a1ea6b862d5022b948c3ebf584933fbe001f88ff8"
+attestation = "https://github.com/arismoko/yungs_better_dungeons/releases/download/v0.3.2/betterdungeons-0.3.2.smod.sigstore.json"
+
+[page]
+url = "https://github.com/arismoko/yungs_better_dungeons/releases/download/v0.3.2/betterdungeons-0.3.2.page.tar"
+size = 1953792
+sha256 = "d00d183c19345eb33641a682a9179b68ead808551cbf28bdc75d8347c19e75c7"
+attestation = "https://github.com/arismoko/yungs_better_dungeons/releases/download/v0.3.2/betterdungeons-0.3.2.page.tar.sigstore.json"
