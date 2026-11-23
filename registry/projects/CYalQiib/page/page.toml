@@ -19,7 +19,10 @@ Differences from the original:
 - Biome decorations (snow, lush and dripstone growth, cactus, dead bushes, mushrooms), minecarts and chests are not placed.
 - The status commands are this port's own; the original has none.
 """
-authors = ["YUNGNICKYOUNG"]
+authors = [
+    "YUNGNICKYOUNG",
+    "arismoko",
+]
 license = "LGPL-3.0-only"
 homepage = "https://github.com/arismoko/yungs_better_mineshafts"
 icon = "icon.png"
