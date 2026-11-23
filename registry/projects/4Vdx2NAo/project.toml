@@ -1,7 +1,7 @@
 id = "4Vdx2NAo"
 slug = "macaws-fences-and-walls"
 mod = "mcwfences"
-kind = "mod"
+kind = "native-mod"
 owners = ["arismoko"]
 repository = 1468300570
 path = "."

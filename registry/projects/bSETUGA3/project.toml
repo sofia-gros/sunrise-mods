@@ -1,7 +1,7 @@
 id = "bSETUGA3"
 slug = "macaws-paths-and-pavings"
 mod = "mcwpaths"
-kind = "mod"
+kind = "native-mod"
 owners = ["arismoko"]
 repository = 1468300594
 path = "."

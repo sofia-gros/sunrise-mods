@@ -1,7 +1,7 @@
 id = "hpCoCCIB"
 slug = "additional-lights"
 mod = "additional_lights"
-kind = "mod"
+kind = "native-mod"
 owners = ["arismoko"]
 repository = 1468300393
 path = "."

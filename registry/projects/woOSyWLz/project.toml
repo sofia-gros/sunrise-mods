@@ -1,7 +1,7 @@
 id = "woOSyWLz"
 slug = "macaws-doors"
 mod = "mcwdoors"
-kind = "mod"
+kind = "native-mod"
 owners = ["arismoko"]
 repository = 1468300547
 path = "."
