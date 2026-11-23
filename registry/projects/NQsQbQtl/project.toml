@@ -1,7 +1,7 @@
 id = "NQsQbQtl"
 slug = "factory-blocks"
 mod = "factory_blocks"
-kind = "mod"
+kind = "native-mod"
 owners = ["arismoko"]
 repository = 1468300422
 path = "."

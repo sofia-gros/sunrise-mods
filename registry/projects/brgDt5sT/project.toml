@@ -1,7 +1,7 @@
 id = "brgDt5sT"
 slug = "yungs-better-witch-huts"
 mod = "betterwitchhuts"
-kind = "mod"
+kind = "native-mod"
 owners = ["arismoko"]
 repository = 1468300177
 path = "."
