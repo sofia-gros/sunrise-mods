@@ -1,0 +1,18 @@
+version = "5.3.2"
+tag = "v5.3.2"
+published = "2026-11-23T14:25:08Z"
+sunrise = "dev-2026-11-22-7cfdf81"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml@refs/tags/release-v1"
+dependencies = []
+
+[file]
+url = "https://github.com/arismoko/silents_gems/releases/download/v5.3.2/silentgems-5.3.2.smod"
+size = 505088
+sha256 = "528bc77c68684e1cb3e79b377f4e35ee763fb2cc054246d14683b6ede2b9b599"
+attestation = "https://github.com/arismoko/silents_gems/releases/download/v5.3.2/silentgems-5.3.2.smod.sigstore.json"
+
+[page]
+url = "https://github.com/arismoko/silents_gems/releases/download/v5.3.2/silentgems-5.3.2.page.tar"
+size = 1498112
+sha256 = "df86f48de2b8eae591db05c677d59bacec148239797a33e08a9be1e074de26fb"
+attestation = "https://github.com/arismoko/silents_gems/releases/download/v5.3.2/silentgems-5.3.2.page.tar.sigstore.json"
