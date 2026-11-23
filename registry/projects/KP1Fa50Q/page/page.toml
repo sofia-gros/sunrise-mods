@@ -17,7 +17,10 @@ Differences from the original:
 - An illuminant block switches one tick after its signal changes, not in the same block update.
 - The lamp post is placed as one block, not as its three-block column, and the edge-light editor and the blocks' tooltips are not ported.
 """
-authors = ["Flanks255"]
+authors = [
+    "Flanks255",
+    "arismoko",
+]
 license = "MIT"
 homepage = "https://github.com/arismoko/simply_light"
 icon = "icon.png"

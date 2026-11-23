@@ -1,0 +1,18 @@
+version = "0.3.2"
+tag = "v0.3.2"
+published = "2026-11-23T15:02:53Z"
+sunrise = "dev-2026-11-22-7cfdf81"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml@refs/tags/release-v1"
+dependencies = []
+
+[file]
+url = "https://github.com/arismoko/simply_light/releases/download/v0.3.2/simplylight-0.3.2.smod"
+size = 804850
+sha256 = "603cc6e40fe9a0e60c9daaf74130f67b174626fbbfe22f5e12058a7dc8d0cc0b"
+attestation = "https://github.com/arismoko/simply_light/releases/download/v0.3.2/simplylight-0.3.2.smod.sigstore.json"
+
+[page]
+url = "https://github.com/arismoko/simply_light/releases/download/v0.3.2/simplylight-0.3.2.page.tar"
+size = 1274880
+sha256 = "1010d32fcddb166ecd20e8e2448f77c6a2f7021e501919a20974865e215eec94"
+attestation = "https://github.com/arismoko/simply_light/releases/download/v0.3.2/simplylight-0.3.2.page.tar.sigstore.json"
