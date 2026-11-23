@@ -20,6 +20,7 @@ Differences from the original:
 authors = [
     "Sketch Macaw",
     "Peachy Macaw",
+    "arismoko",
 ]
 license = "MIT"
 homepage = "https://github.com/arismoko/macaws_doors"
