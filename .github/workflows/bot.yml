@@ -37,6 +37,14 @@ jobs:
           # The commit and its first parent: the pull request's base, or main before the push.
           fetch-depth: 2
           persist-credentials: false
+      - name: Test, not for merge. Fetch one Modrinth file by its fingerprint
+        env:
+          SHA512: bd7cb8b1c5651b0431717cb7c981fa9de574dcb60b05f675e04ead81d16854009f97cb96d714894a1c2974a4502fbad67f4c6494ade62431d32256387b5fecca
+        run: |
+          url=$(curl -fsS "https://api.modrinth.com/v2/version_file/$SHA512?algorithm=sha512" | jq -r --arg h "$SHA512" '.files[] | select(.hashes.sha512 == $h) | .url')
+          echo "$url"
+          curl -fsSL -o "$RUNNER_TEMP/original.jar" "$url"
+          echo "$SHA512  $RUNNER_TEMP/original.jar" | sha512sum -c -
       - name: Test the release PR scripts
         run: python3 -I -m unittest discover -s ci -p 'test_release*.py'
       # The tool's own checks run only on a change to the tool or its tests.
