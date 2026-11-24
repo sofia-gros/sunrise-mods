@@ -1,7 +1,7 @@
 [[release]]
 version = "0.5.1"
 package = "ce1b9af66c3c67956707cc8e1d4916c1a7f797957259ee6b925925a94a4c6776"
-rules = 1
+rules = 2
 
 [release.fits]
 dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"

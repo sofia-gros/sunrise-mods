@@ -1,7 +1,7 @@
 [[release]]
 version = "0.1.1"
 package = "bcb93f7ca5ed7f7ff4a4fdf43ddc8f8a135326f08ed30451ff2deb106d20dc5c"
-rules = 1
+rules = 2
 
 [release.fits]
 dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
@@ -13,7 +13,7 @@ dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c2
 [[release]]
 version = "0.1.2"
 package = "3063587dc5feaaa707110699bfb984b82057e0fa4cf00ffe1772436d87d88cba"
-rules = 1
+rules = 2
 
 [release.fits]
 dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"

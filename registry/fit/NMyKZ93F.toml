@@ -1,7 +1,7 @@
 [[release]]
 version = "0.1.2"
 package = "227ea7bd85988b7ff2065caa5f056cfa5aafffe133fa72af7e6166402be8c3fc"
-rules = 1
+rules = 2
 
 [release.fits]
 
