@@ -1,47 +1,11 @@
 [[release]]
-version = "0.2.1"
-package = "62d7a2f4091d87832a84b66c82a5ebc751a5ae1f0f87af84c26278dec20b0c40"
+version = "0.2.6"
+package = "6b3020c5d2a85760c91eac170b99703971cf1c47452007753db8dad10020fd6a"
 rules = 2
 
 [release.fits]
-dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
 dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
 dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
 
 [release.does_not_fit]
-
-[[release]]
-version = "0.2.3"
-package = "970a735de0476427c5842476b72850a6a056deead035e0170dcd72227974f718"
-rules = 2
-
-[release.fits]
 dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
-dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
-dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
-
-[release.does_not_fit]
-
-[[release]]
-version = "0.2.4"
-package = "1de72cd4bf7f4e268f156cb859aa3959a4804f684d2e802cd0dfaa562e038489"
-rules = 2
-
-[release.fits]
-dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
-dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
-dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
-
-[release.does_not_fit]
-
-[[release]]
-version = "0.2.5"
-package = "9a7b3e4e2dd4297cfe882fd1523fc916ba734084ace6dd902f1894ae5875be15"
-rules = 2
-
-[release.fits]
-dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
-dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
-dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
-
-[release.does_not_fit]
