@@ -1,0 +1,20 @@
+version = "0.5.1"
+kind = "native-mod"
+tag = "mcwbridges/v0.5.1"
+published = "2026-11-24T23:22:03Z"
+sunrise = "dev-2026-11-24-3d34bbe"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml@refs/tags/release-v1"
+repository = 1468300372
+dependencies = []
+
+[file]
+url = "https://github.com/arismoko/sunrise-ports/releases/download/mcwbridges/v0.5.1/mcwbridges-0.5.1.smod"
+size = 131640
+sha256 = "c29390d7e25b7ae1730079ffb2ebbadecf6e3ae0fed5d793392ba5b05f431aa5"
+attestation = "https://github.com/arismoko/sunrise-ports/releases/download/mcwbridges/v0.5.1/mcwbridges-0.5.1.smod.sigstore.json"
+
+[page]
+url = "https://github.com/arismoko/sunrise-ports/releases/download/mcwbridges/v0.5.1/mcwbridges-0.5.1.page.tar"
+size = 1945088
+sha256 = "9a0407cf4f7062d6d2a3539951e49697d9c68cbbbe05cb1848eace0a425bf6bb"
+attestation = "https://github.com/arismoko/sunrise-ports/releases/download/mcwbridges/v0.5.1/mcwbridges-0.5.1.page.tar.sigstore.json"

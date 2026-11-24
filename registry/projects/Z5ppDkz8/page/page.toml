@@ -1,0 +1,46 @@
+name = "Macaw's Bridges"
+summary = "157 bridges, rope bridges, rail bridges, bridge stairs, piers, torches, lanterns, and pliers (uses the player's own original jar for assets and data)."
+description = """
+Macaw's Bridges adds a wide collection of bridges, stairs, piers, and bridge lights across wood, stone, iron, bamboo, and glass:
+
+- **Bridges**: log bridges (12 woods, Asian red, glass), rope bridges (12 woods), bamboo and dry bamboo bridges, iron bridge, and stone + balustrade bridges (17 stone types).
+- **Auto-connecting & quick extend**: bridges connect automatically to matching neighbours, extend forward on right-click with the same bridge block, and cycle entrance openings with **Pliers** or shears.
+- **Rail bridges**: 12 wooden rail bridges that accept a redstone torch on right-click to emit a redstone signal (strength 10) and drop the torch when emptied or broken.
+- **Bridge stairs & piers**: 46 stair variants that connect sideways and climb upward on right-click, plus 34 waterloggable bridge piers that stack upward on right-click.
+- **Bridge torch & lantern**: light-level-15 handrail lights that orient to the bridge or stair below them (with torch flame and smoke particles).
+
+Original mod: [Macaw's Bridges](https://modrinth.com/mod/macaws-bridges) by Sketch Macaw and Sketch Peachy.
+
+**External jar note**: Macaw's Bridges is All Rights Reserved. No original assets or data are bundled in this package; Sunrise loads the textures, models, translations, recipes, loot tables, and tags from the player's own copy of the original 26.3 NeoForge jar.
+
+Needed on both the server and the client.
+
+Differences from the original:
+
+- Mirroring rope bridges inside structure templates (`Bridge_Block_Rope.mirror`) is not overridden because the mod API has no `BlockPart::mirror` hook (gap: sunrise-org/sunrise#5314). Structure rotation is supported.
+- External `setBlock` placement of bridges outside player/dispenser placement or bridge quick-extend does not run a custom `onPlace` self-reconnection hook because the mod API has no writable `BlockPart::on_place` hook (gap: sunrise-org/sunrise#5302).
+- Block items currently show raw `block.mcwbridges.<id>` translation keys because Sunrise gives a declared block's item the `block.<ns>.<id>` name key while the original mod's language files use `item.<ns>.<id>` (gap: sunrise-org/sunrise#5574).
+
+Ported to Sunrise under the MIT licence (declarations and behaviour only).
+"""
+authors = [
+    "Sketch Macaw",
+    "Sketch Peachy",
+    "arismoko",
+]
+license = "MIT"
+homepage = "https://github.com/arismoko/sunrise-ports"
+icon = "icon.png"
+categories = ["decoration"]
+
+[[screenshots]]
+path = "bridges-overview.png"
+caption = "Overview of oak rail, bamboo, rope, iron, stone brick, and oak log bridges spanning a water channel with bridge stairs, piers, torches, and lanterns."
+
+[[screenshots]]
+path = "bridges-log-stone-piers.png"
+caption = "An oak log bridge supported by waterlogged bridge piers with attached stairs, a lit bridge torch, and a bridge lantern, alongside a stone brick bridge."
+
+[[screenshots]]
+path = "bridges-iron-rope-bamboo-rail.png"
+caption = "Close-up of the oak rail, bamboo, rope, iron, and stone brick bridges spanning the water."
