@@ -1,0 +1,9 @@
+id = "UOwtIfFL"
+slug = "sunrise-register-test"
+mod = "sunrise_register_test"
+kind = "mod"
+owners = ["arismoko"]
+repository = 1469578598
+path = "."
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml"
+registered = "2026-11-24"

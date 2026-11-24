@@ -1,0 +1,5 @@
+name = "arismoko/sunrise-register-test"
+
+[[package]]
+path = "."
+project = "UOwtIfFL"
