@@ -1,0 +1,17 @@
+name = "SunnyF3"
+summary = "A cleaner F3 overlay with titled sections you can place, hide, or restyle."
+description = """
+A cleaner F3 overlay with titled sections you can place, hide, or restyle.
+
+The debug text comes in sections: Performance, Position, World, Looking At, System, and Sunrise. Each can sit in the left or right column, at any place, or stay hidden. Values are coloured by meaning (frame rate, server time, light, memory, the X, Y, and Z axes, true and false), with a 1% low, the in-game clock, and readable names for biomes, blocks, and creatures. Choose panels, strips, or bare text, and set opacity, shadow, refresh rate, and the accent colour. Sunrise's charts and every F3 key work as before, and Sunrise's own debug entries (F3+F6) can be shown as a section too.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/sunnyf3"
+issues = "https://github.com/Zekrenlight/sunnyf3/issues"
+icon = "icon.png"
+categories = ["utility"]
+
+[[screenshots]]
+path = "overlay.png"
+caption = "SunnyF3's debug overlay, with titled sections on the left and right."
