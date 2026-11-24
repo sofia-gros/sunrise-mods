@@ -1,0 +1,23 @@
+[[release]]
+version = "3.1.5"
+package = "f0cfadbd87a22bb5bd8c057e73b9984186d2b8b95cf66cb887fc0d11d8be5be2"
+rules = 1
+
+[release.fits]
+dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
+dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
+dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
+
+[release.does_not_fit]
+
+[[release]]
+version = "3.1.6"
+package = "380e4c013dae48e715e2e21a5095da83fae4ac5bc4328870eb14f4556490087f"
+rules = 1
+
+[release.fits]
+dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
+dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
+dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
+
+[release.does_not_fit]
