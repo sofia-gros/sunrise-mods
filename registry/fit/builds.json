@@ -10,8 +10,33 @@
     "surface": "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
   },
   {
+    "id": "dev-2026-11-24-3d34bbe",
+    "commit": "3d34bbe63d71bb24c098c1e4021ef866be12fe2d",
+    "surface": "7d2f4fd955772f92fdfbd68a0a109815cc55e4ff93bfc2bd08f70174fff50767"
+  },
+  {
     "id": "dev-2026-11-24-f8aa80e",
     "commit": "f8aa80e4c40cf1a5d30e85d13937f3fcf06d8237",
     "surface": "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
+  },
+  {
+    "id": "nightly-2026-11-16-234db8d",
+    "commit": "234db8df6210165318b2b604dea50275357bfaeb",
+    "surface": "c6798d3f753b6d3e70ab6d4c4ffb70f070b484f0a435efcdb2a7a8a68fa7ddda"
+  },
+  {
+    "id": "nightly-2026-11-17-2d81263",
+    "commit": "2d8126336e579777eabf9b2fd8b3d476236a04f2",
+    "surface": "e6ce497ab64ebdb0987f27142b364e547079af9b3b9e59dbc32b41c5b0b01be3"
+  },
+  {
+    "id": "nightly-2026-11-19-520fc48",
+    "commit": "520fc4882de3abb8ecd8b98293f4d7263bc88181",
+    "surface": "c1d58d8ab128d9cb7a49cb24637d15ecc69b534d1561249cc559e594c437f309"
+  },
+  {
+    "id": "nightly-2026-11-20-9425651",
+    "commit": "94256510f74e6843754e0a93fd9e4da7e45b1056",
+    "surface": "70985cc189d38573257d1fe09fba0126b8895a11cbb6a55b1f444fa2c92e1103"
   }
 ]
