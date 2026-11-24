@@ -1,0 +1,38 @@
+name = "Better Inventory"
+summary = "Sort, auto-refill, an equipment HUD, a gliding hotbar, and a pickup list."
+description = """
+Sort, auto-refill, an equipment HUD, a gliding hotbar, and a pickup list.
+
+A sort button sits by your inventory and by chests, barrels, and shulker boxes. The sort key (R at first) sorts the part under the cursor by joining stacks, then lining them up by group, name, or amount, leaving the hotbar alone. It uses ordinary left clicks, so it works on servers.
+
+When the stack in your hand runs out or a tool breaks, the next matching stack can move into that hotbar slot, quietly, with no sounds or flashes. Armor and held items can appear beside the hotbar with their wear. The hotbar itself can glide, lift the held item, and wobble. Items, experience, and arrows you pick up can list in a corner with their icon, name, and amount. Every part has its own switch.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/better-inventory"
+issues = "https://github.com/Zekrenlight/better-inventory/issues"
+icon = "icon.png"
+categories = [
+    "storage",
+    "utility",
+]
+
+[[screenshots]]
+path = "equipment-hud.png"
+caption = "Armor and held items beside the hotbar, with wear shown as a percent."
+
+[[screenshots]]
+path = "sorting-settings.png"
+caption = "Sorting and auto-refill settings, including the accent colour picker."
+
+[[screenshots]]
+path = "hud-settings.png"
+caption = "Equipment HUD settings for armor, held items, and wear display."
+
+[[screenshots]]
+path = "hotbar-settings.png"
+caption = "Hotbar motion settings, including glide, a bigger held item, and wobble."
+
+[[screenshots]]
+path = "pickup-settings.png"
+caption = "Pickup list settings for corner, time, lines, and size."
