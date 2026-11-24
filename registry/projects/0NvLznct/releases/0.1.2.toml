@@ -1,0 +1,19 @@
+version = "0.1.2"
+kind = "native-mod"
+tag = "v0.1.2"
+published = "2026-11-24T04:59:35Z"
+sunrise = "nightly-2026-11-20-9425651"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml@refs/tags/release-v1"
+dependencies = []
+
+[file]
+url = "https://github.com/Flo-bot-png/chunksmith-bridge/releases/download/v0.1.2/chunksmith_bridge-0.1.2.smod"
+size = 201605
+sha256 = "fad571be389b746c1924bf7549135a23f8f954f85a08073071d7d00b5316d1e5"
+attestation = "https://github.com/Flo-bot-png/chunksmith-bridge/releases/download/v0.1.2/chunksmith_bridge-0.1.2.smod.sigstore.json"
+
+[page]
+url = "https://github.com/Flo-bot-png/chunksmith-bridge/releases/download/v0.1.2/chunksmith_bridge-0.1.2.page.tar"
+size = 3633664
+sha256 = "a858e2e68b00ed7090bc06e1ce1bcf2e46d5aca42d0711ee52debbce6bb63792"
+attestation = "https://github.com/Flo-bot-png/chunksmith-bridge/releases/download/v0.1.2/chunksmith_bridge-0.1.2.page.tar.sigstore.json"

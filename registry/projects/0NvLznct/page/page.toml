@@ -1,0 +1,30 @@
+name = "Chunksmith Bridge"
+summary = "Shows the distant terrain a Chunksmith server hands out in Sunrise's own far terrain: everything players have explored, far beyond view distance."
+description = """
+[Chunksmith](https://modrinth.com/mod/chunksmith) is a server mod/plugin that builds distant-terrain (LOD) data from the server's own world and hands it to clients, made for Distant Horizons and voxy. This mod speaks its protocol (version 4, Chunksmith 4.x and newer) and puts that terrain into Sunrise's own far terrain, so you see land you have never visited, as far as other players have explored it.
+
+**How it works**
+- When you join a server, the mod says hello on Chunksmith's `chunksmith:lod` channel. A server without Chunksmith ignores it.
+- It downloads the LOD regions around you, over Chunksmith's download port or the game connection, and converts every chunk into Sunrise's far-terrain format, beside what Sunrise keeps of the chunks you saw yourself (those always win).
+- Each region is downloaded once and kept; new terrain shows after you rejoin.
+
+**Requirements**
+- Sunrise's far terrain on: Options → Graphics → **LOD distance** above 0.
+- A server running Chunksmith with LOD data.
+
+**Network:** besides the hello and the downloads from the host the server names, no other hosts are contacted and no data is collected. Details and settings (radius, refresh) are in the README.
+
+Tested on Linux. On Windows, some setups currently fail to build it because of a path-length limit in the launcher's build folder.
+"""
+authors = ["Galaxis_Boarder"]
+license = "GPL-3.0-only"
+icon = "icon.png"
+categories = ["utility"]
+
+[[screenshots]]
+path = "far_terrain_island.png"
+caption = "Terrain far beyond view distance, from the server's Chunksmith data"
+
+[[screenshots]]
+path = "far_terrain_coast.png"
+caption = "Land other players explored, drawn from the server's data"
