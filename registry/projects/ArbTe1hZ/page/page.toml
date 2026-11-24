@@ -1,0 +1,39 @@
+name = "Statistics+"
+summary = "A clearer Statistics screen with tabs, search, sorting, and local snapshots."
+description = """
+A clearer Statistics screen with tabs, search, sorting, and local snapshots.
+
+Statistics+ replaces the pause-menu Statistics button with a live, searchable screen. Views cover General, Items, Blocks, Mobs, Food, and Files. Search by name or id, sort by listed order, name, or value, and hide empty rows with Filled. The Mobs tab can group by kind and cycle All, Hostile, or Passive. Distance units cycle centimetres, metres, and kilometres; time units cycle ticks through days. Item, block, and food rows show icons; mobs show a spawn-egg icon when the game has one.
+
+Optional JSON snapshots stay on this computer, under the mod data directory. Save and load them from the Files tab, or with /statsplus save and /statsplus load. Open the screen from the pause menu or /statsplus panel. It makes no network requests of its own; the only traffic is the game's ordinary request-stats command to the server you are playing on.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/statistics-plus"
+issues = "https://github.com/Zekrenlight/statistics-plus/issues"
+icon = "icon.png"
+categories = ["utility"]
+
+[[screenshots]]
+path = "general.png"
+caption = "The General tab, with times and distances in readable units."
+
+[[screenshots]]
+path = "items.png"
+caption = "The Items tab, with icons, search, and a filled-only list."
+
+[[screenshots]]
+path = "blocks.png"
+caption = "The Blocks tab, listing how often each block has been used."
+
+[[screenshots]]
+path = "mobs.png"
+caption = "The Mobs tab, grouped and filtered to what you have filled in."
+
+[[screenshots]]
+path = "food.png"
+caption = "The Food tab, with used, picked up, and drowned counts."
+
+[[screenshots]]
+path = "files.png"
+caption = "The Files tab, for saving a local statistics snapshot."
