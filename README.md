@@ -1,9 +1,10 @@
 # sunrise-mods
 
-## The new registry (being built)
+## The new registry
 
-The new registry is being built alongside the current one, at `v2/index.json` on the same site.
-It is not live yet; the current registry and the instructions below are unchanged.
+The new registry is published alongside the current one, at `v2/index.signed` on the same site, and
+the steps below work today. Launchers released so far still read the current registry, which the
+rest of this page describes; the launcher that reads the new one is not released yet.
 
 1. **Prepare your repository.** In `page.toml`, write a short summary and a long description and
    list at least one screenshot under `page/`. Categories are optional. The page uses the mod's
@@ -17,8 +18,9 @@ It is not live yet; the current registry and the instructions below are unchange
    characters from `0-9`, `A-Z` and `a-z`. That ID is permanent; the project appears in Discover after
    its first release is approved. Or open a
    [Register a repository](https://github.com/sunrise-org/sunrise-mods/issues/new?template=register.yml)
-   issue with the link to your repository, and a maintainer opens that pull request. A form at
-   [Submit a mod](https://playsunrise.net/mods/submit) that opens it for you is coming.
+   issue with the link to your repository, and a maintainer opens that pull request and links it on
+   the issue. Or use the form at [Submit a mod](https://playsunrise.net/mods/submit): after a GitHub
+   sign-in it checks your repository and opens the pull request at once.
 3. **Release from your package folder.** After registration merges, run `cargo sunrise-mod release <version>`.
    The command updates the caller workflow and bumps the manifest version, then tags and pushes.
    The shared workflow publishes a signed `.smod` and a separate signed page bundle. A native mod
@@ -120,8 +122,8 @@ and Dev is listed by its source instead ([Source mods](#source-mods)).
 4. A reviewer reads the change and merges it. The `publish` workflow then publishes the file as the release
    `<id>-<version>` and adds the project to the index.
 
-The submission form at playsunrise.net/mods/submit will open these pull requests for you once its service runs.
-Until then, submit by hand as described above.
+The form at playsunrise.net/mods/submit registers a repository on the new registry only. This route
+is by hand, as described above.
 
 ```toml
 id = "coords_hud"

@@ -56,12 +56,12 @@ take down the whole project.
 
 ## Registration pull requests
 
-A registration PR adds the package to its repository's `registry/repositories/<repository ID>.toml` and creates its `project.toml`. For
-now authors open it by hand, so nothing has checked it before you: confirm that the PR's author
+A registration PR adds the package to its repository's `registry/repositories/<repository ID>.toml` and creates its `project.toml`. The
+[Submit a mod](https://playsunrise.net/mods/submit) form opens most of them, and has already checked
+what follows. One opened by hand, by its author or by a maintainer answering a Register issue, has
+been checked by nobody before you: confirm that the PR's author, or the issue's opener,
 administers the named repository (or is one of its organisation's owners), that the numeric
 repository ID is that repository's, that the caller workflow and both manifests are on its default
-branch, and that the PR changes nothing but those two kinds of file. The
-[Submit a mod](https://playsunrise.net/mods/submit) form, which is coming, will make those checks
-before it opens the PR. This is the one human review that claims the project ID. Check that the claimed repository and package belong
+branch, and that the PR changes nothing but those two kinds of file. This is the one human review that claims the project ID. Check that the claimed repository and package belong
 to the submitter and that the ID and slug are not being squatted. Sharing an in-game ID is allowed:
 different ports are distinct projects. Registration does not approve any release code.
