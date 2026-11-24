@@ -1,0 +1,11 @@
+[[release]]
+version = "0.5.1"
+package = "edebeedef08ec0ad84139a68a79652384e45c1a67a07eefc302a6160784a602d"
+rules = 2
+
+[release.fits]
+dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
+dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
+
+[release.does_not_fit]
+dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
