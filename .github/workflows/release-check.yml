@@ -100,12 +100,8 @@ jobs:
           - host: Linux
             runner: ubuntu-latest
             operation: build
-          - host: macOS
-            runner: macos-15
-            operation: check
-          - host: Windows
-            runner: windows-latest
-            operation: check
+          # The macOS and Windows compile checks are switched off: waiting for a macOS runner
+          # took several times longer than every other step together. A release is built on Linux only.
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:

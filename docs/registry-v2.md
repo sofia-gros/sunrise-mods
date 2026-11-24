@@ -391,8 +391,9 @@ it still reaches the same asset; the stored SHA-256 must still match.
 
 The scanner receives the unpacked source and the last approved package when there is one. For the
 native template's API path dependency, the scanner fetches the signed SDK pinned by the mod into a
-scratch copy before passing the lockfile to Cargo; it never builds the mod. Separate hosted jobs
-build on Linux and compile-check on Apple-chip macOS and Windows x64. These jobs use the signed
+scratch copy before passing the lockfile to Cargo; it never builds the mod. A separate hosted job
+builds on Linux; the macOS and Windows compile checks are switched off for now, because waiting for
+a macOS runner made each release slow. The job uses the signed
 `cargo-sunrise-mod` tool, and its signed `tool.json` must declare `release_contract >= 1`. Publish
 such a tool before enabling the watcher. Jobs that handle the package have no write permissions,
 secrets, persisted checkout token or Actions cache access.
