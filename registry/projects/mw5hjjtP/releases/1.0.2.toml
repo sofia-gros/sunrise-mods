@@ -1,0 +1,19 @@
+version = "1.0.2"
+kind = "native-mod"
+tag = "v1.0.2"
+published = "2026-11-24T18:53:16Z"
+sunrise = "dev-2026-11-24-3d34bbe"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml@refs/tags/release-v1"
+dependencies = []
+
+[file]
+url = "https://github.com/Zekrenlight/frontier/releases/download/v1.0.2/frontier-1.0.2.smod"
+size = 168363
+sha256 = "b0593b2119b77a81c4c34cc523058af1584bf6dc1cda2fcb94443735796d9807"
+attestation = "https://github.com/Zekrenlight/frontier/releases/download/v1.0.2/frontier-1.0.2.smod.sigstore.json"
+
+[page]
+url = "https://github.com/Zekrenlight/frontier/releases/download/v1.0.2/frontier-1.0.2.page.tar"
+size = 868864
+sha256 = "faa01d0005be63620346b446f06943092304bef5abb70c90e669baf2f480f782"
+attestation = "https://github.com/Zekrenlight/frontier/releases/download/v1.0.2/frontier-1.0.2.page.tar.sigstore.json"

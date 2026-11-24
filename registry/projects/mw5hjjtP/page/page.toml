@@ -1,0 +1,27 @@
+name = "Frontier"
+summary = "A minimap and world map, with waypoints, creatures, and layered cave views."
+description = """
+A minimap and world map, with waypoints, creatures, and layered cave views.
+
+The minimap can be square or round, north-up or turning with you, in any corner. It shows nearby creatures (with their faces), dropped items, and storage. Hold Tab for a dropped item's icon and real name. A cave view works underground and under glass domes, and the world map (M) can show layered cave views, each sixteen blocks tall, of everywhere you have been. Day and night light, and a paper or plain frame, are optional.
+
+Click the map for a menu to add a waypoint, copy coordinates, share them in chat, or teleport when the game allows it. Maps and waypoints are kept per server or world and per dimension. Client side only.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/frontier"
+issues = "https://github.com/Zekrenlight/frontier/issues"
+icon = "icon.png"
+categories = ["utility"]
+
+[[screenshots]]
+path = "minimap.png"
+caption = "The round minimap, with coordinates, biome, creatures, and nearby things."
+
+[[screenshots]]
+path = "waypoint-menu.png"
+caption = "The map cursor menu, to add a waypoint, copy coordinates, or share them."
+
+[[screenshots]]
+path = "world-map.png"
+caption = "The world map of explored terrain, with a cave layer in the corner."
