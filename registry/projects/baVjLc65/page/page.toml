@@ -1,0 +1,25 @@
+name = "SuperCapes"
+summary = "Cape cloth that moves with you, plus public cape pictures, with a settings card."
+description = """
+Cape cloth that moves with you, plus public cape pictures, with a settings card.
+
+SuperCapes replaces the stiff vanilla cape with cloth that moves as you walk, sprint, or fly, and can use that same cloth on elytra. It can also show public cape pictures, with OptiFine and MinecraftCapes on by default, and LabyMod and Cloaks available if you turn them on. Online lookups ask only for those public pictures; nothing else is sent. An Only me option keeps downloaded pictures on your own player. There is no extra keybind: open the card with the SuperCapes button above Save and Quit, or with /supercapes.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/supercapes"
+issues = "https://github.com/Zekrenlight/supercapes/issues"
+icon = "icon.png"
+categories = ["utility"]
+
+[[screenshots]]
+path = "motion-settings.png"
+caption = "Cape motion settings, including style, ripple, quality, and elytra."
+
+[[screenshots]]
+path = "sources-settings.png"
+caption = "Cape picture sources, with OptiFine on and the others off."
+
+[[screenshots]]
+path = "about.png"
+caption = "The About tab, describing the cape cloth and public picture sources."
