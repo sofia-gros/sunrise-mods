@@ -1,0 +1,24 @@
+name = "Chatty"
+summary = "Player heads, timestamps, stacked repeats, chat history, and a symbol picker."
+description = """
+Player heads, timestamps, stacked repeats, chat history, and a symbol picker.
+
+Chatty draws a player's head beside their name in chat, and can add a clock to each line. Repeated messages can stack with a count instead of filling the log. History is kept per server and world, with clear buttons and /chatty clear. A symbol picker sits by the chat box, so you can insert faces, arrows, and other symbols without typing codes. Every part has its own switch.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/chatty"
+issues = "https://github.com/Zekrenlight/chatty/issues"
+icon = "icon.png"
+categories = [
+    "social",
+    "utility",
+]
+
+[[screenshots]]
+path = "chat-heads.png"
+caption = "Chat lines with player heads, timestamps, and a stacked earlier-chat divider."
+
+[[screenshots]]
+path = "symbol-picker.png"
+caption = "The symbol picker beside the chat box, open on the Sky & Stars set."
