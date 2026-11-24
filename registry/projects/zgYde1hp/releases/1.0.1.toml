@@ -1,0 +1,19 @@
+version = "1.0.1"
+kind = "native-mod"
+tag = "v1.0.1"
+published = "2026-11-24T18:51:55Z"
+sunrise = "dev-2026-11-24-3d34bbe"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml@refs/tags/release-v1"
+dependencies = []
+
+[file]
+url = "https://github.com/Zekrenlight/advancements-plus/releases/download/v1.0.1/advplus-1.0.1.smod"
+size = 65496
+sha256 = "5e71fee3f5ab6b3817b11abd2cd4d56ceab5b78501143651ee049fadda81bd5c"
+attestation = "https://github.com/Zekrenlight/advancements-plus/releases/download/v1.0.1/advplus-1.0.1.smod.sigstore.json"
+
+[page]
+url = "https://github.com/Zekrenlight/advancements-plus/releases/download/v1.0.1/advplus-1.0.1.page.tar"
+size = 149504
+sha256 = "45cf77755343937dccd5614f3e178e81e905f85e0cf88679d5e81bdc94d05b46"
+attestation = "https://github.com/Zekrenlight/advancements-plus/releases/download/v1.0.1/advplus-1.0.1.page.tar.sigstore.json"

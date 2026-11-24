@@ -1,0 +1,39 @@
+name = "Advancements+"
+summary = "A full-window Advancements tree with search, filters, and on-screen plaques."
+description = """
+A full-window Advancements tree with search, filters, and on-screen plaques.
+
+Advancements+ replaces the stock Advancements screen. Tabs show each root and its progress. The tree fills the card, laid out from parent links: chain-heavy tabs stay left to right, and wide tabs switch to a top-down tree. Drag to pan, and the mouse wheel steps zoom around the cursor. A list mode, search by title or id, and a filter that cycles All, Done, Active, and Locked are all there. Tooltips show the title, description, frame type, and remaining criteria.
+
+Advancement toasts can be replaced with a short plaque at the top or bottom of the screen (icon, title, and a frame-type accent). Recipe plaques can be hidden, and plaques can be turned off so the game's own toasts remain. Open it from the pause menu, the Advancements key, or /advplus panel. It stays fully offline.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/advancements-plus"
+issues = "https://github.com/Zekrenlight/advancements-plus/issues"
+icon = "icon.png"
+categories = ["utility"]
+
+[[screenshots]]
+path = "adventure-tree.png"
+caption = "The Adventure tab as a top-down advancement tree."
+
+[[screenshots]]
+path = "the-end-tree.png"
+caption = "The End tab, with its short advancement chain."
+
+[[screenshots]]
+path = "husbandry-tree.png"
+caption = "The Husbandry tab as a top-down advancement tree."
+
+[[screenshots]]
+path = "nether-tree.png"
+caption = "The Nether tab, laid out across the card."
+
+[[screenshots]]
+path = "minecraft-tree.png"
+caption = "The Minecraft tab as a left-to-right advancement tree."
+
+[[screenshots]]
+path = "settings.png"
+caption = "Plaque and default-view settings on the Settings tab."
