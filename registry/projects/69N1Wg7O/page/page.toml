@@ -1,0 +1,31 @@
+name = "Hookline"
+summary = "A client-side AFK fishing helper that reels, recasts, and sorts the catch."
+description = """
+A client-side AFK fishing helper that reels, recasts, and sorts the catch.
+
+Hookline watches for your own bobber splash, reels, and recasts. A keep-or-toss list covers the usual catch, with extra enchant rules for books, rods, and bows. When the bag is almost full it can deposit only the kept catch into a chest or barrel it opened. Optional meals eat from the off-hand, then the hotbar, until hunger is full. Pace variance, a quiet rest after five minutes with no bite, a look-around, and a session ledger are all optional.
+
+Toggle it with V and open the panel with O, or use /hookline panel. It drives ordinary client actions (the use key, hotbar selection, and inventory clicks), not a custom server protocol. Use it only on servers and worlds where AFK fishing and this kind of automation are allowed.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/hookline"
+issues = "https://github.com/Zekrenlight/hookline/issues"
+icon = "icon.png"
+categories = ["utility"]
+
+[[screenshots]]
+path = "loot.png"
+caption = "The loot tab, with keep or toss for each kind of catch."
+
+[[screenshots]]
+path = "enchants.png"
+caption = "Enchant rules used when a book, rod, or bow row is set to keep."
+
+[[screenshots]]
+path = "behavior.png"
+caption = "Behavior toggles, including pace variance, meals, and idle rest."
+
+[[screenshots]]
+path = "stats.png"
+caption = "The session ledger on the stats tab."
