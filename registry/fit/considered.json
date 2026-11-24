@@ -1,0 +1,194 @@
+[
+  {
+    "tag": "dev-2026-11-22-7cfdf81",
+    "target": "7cfdf81463ebb4a19705768273909f7f3f03601d",
+    "outcome": {
+      "offered": {
+        "id": "dev-2026-11-22-7cfdf81",
+        "commit": "7cfdf81463ebb4a19705768273909f7f3f03601d"
+      }
+    }
+  },
+  {
+    "tag": "dev-2026-11-23-ebd2d22",
+    "target": "ebd2d226fbe2cf2783e4c3be5a86e385e3258f5e",
+    "outcome": {
+      "offered": {
+        "id": "dev-2026-11-23-ebd2d22",
+        "commit": "ebd2d226fbe2cf2783e4c3be5a86e385e3258f5e"
+      }
+    }
+  },
+  {
+    "tag": "dev-2026-11-24-3d34bbe",
+    "target": "3d34bbe63d71bb24c098c1e4021ef866be12fe2d",
+    "outcome": {
+      "offered": {
+        "id": "dev-2026-11-24-3d34bbe",
+        "commit": "3d34bbe63d71bb24c098c1e4021ef866be12fe2d"
+      }
+    }
+  },
+  {
+    "tag": "dev-2026-11-24-f8aa80e",
+    "target": "f8aa80e4c40cf1a5d30e85d13937f3fcf06d8237",
+    "outcome": {
+      "offered": {
+        "id": "dev-2026-11-24-f8aa80e",
+        "commit": "f8aa80e4c40cf1a5d30e85d13937f3fcf06d8237"
+      }
+    }
+  },
+  {
+    "tag": "nightly",
+    "target": "94256510f74e6843754e0a93fd9e4da7e45b1056",
+    "outcome": {
+      "offered": {
+        "id": "nightly-2026-11-20-9425651",
+        "commit": "94256510f74e6843754e0a93fd9e4da7e45b1056"
+      }
+    }
+  },
+  {
+    "tag": "nightly-2026-11-16",
+    "target": "234db8df6210165318b2b604dea50275357bfaeb",
+    "outcome": {
+      "offered": {
+        "id": "nightly-2026-11-16-234db8d",
+        "commit": "234db8df6210165318b2b604dea50275357bfaeb"
+      }
+    }
+  },
+  {
+    "tag": "nightly-2026-11-17",
+    "target": "2d8126336e579777eabf9b2fd8b3d476236a04f2",
+    "outcome": {
+      "offered": {
+        "id": "nightly-2026-11-17-2d81263",
+        "commit": "2d8126336e579777eabf9b2fd8b3d476236a04f2"
+      }
+    }
+  },
+  {
+    "tag": "nightly-2026-11-19",
+    "target": "520fc4882de3abb8ecd8b98293f4d7263bc88181",
+    "outcome": {
+      "offered": {
+        "id": "nightly-2026-11-19-520fc48",
+        "commit": "520fc4882de3abb8ecd8b98293f4d7263bc88181"
+      }
+    }
+  },
+  {
+    "tag": "sdk-009338fc6e2565fa623271ade1b49c35120e1e20",
+    "target": "009338fc6e2565fa623271ade1b49c35120e1e20",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-234db8df6210165318b2b604dea50275357bfaeb",
+    "target": "234db8df6210165318b2b604dea50275357bfaeb",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-2d8126336e579777eabf9b2fd8b3d476236a04f2",
+    "target": "2d8126336e579777eabf9b2fd8b3d476236a04f2",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-31957b6fceb0e85efb5940fe6d8fb2f10d9d5135",
+    "target": "31957b6fceb0e85efb5940fe6d8fb2f10d9d5135",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-3d34bbe63d71bb24c098c1e4021ef866be12fe2d",
+    "target": "3d34bbe63d71bb24c098c1e4021ef866be12fe2d",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-42f15c9c9c159ecd8a6e9beaddbd78b0788d51f2",
+    "target": "42f15c9c9c159ecd8a6e9beaddbd78b0788d51f2",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-520fc4882de3abb8ecd8b98293f4d7263bc88181",
+    "target": "520fc4882de3abb8ecd8b98293f4d7263bc88181",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-68b51161354df882c903467bd891a7996e08c11f",
+    "target": "68b51161354df882c903467bd891a7996e08c11f",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-7cfdf81463ebb4a19705768273909f7f3f03601d",
+    "target": "7cfdf81463ebb4a19705768273909f7f3f03601d",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-94256510f74e6843754e0a93fd9e4da7e45b1056",
+    "target": "94256510f74e6843754e0a93fd9e4da7e45b1056",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-a2dac1ee7526d80cf355722962d0195c16f79bd2",
+    "target": "a2dac1ee7526d80cf355722962d0195c16f79bd2",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-bd21c4d7206d1764e6b5b5b42b8e42879fb1a0e7",
+    "target": "bd21c4d7206d1764e6b5b5b42b8e42879fb1a0e7",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-d404b5f02f69f4684f6b4d4fbb8cea6a98565b91",
+    "target": "d404b5f02f69f4684f6b4d4fbb8cea6a98565b91",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-ebd2d226fbe2cf2783e4c3be5a86e385e3258f5e",
+    "target": "ebd2d226fbe2cf2783e4c3be5a86e385e3258f5e",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-ed3ac19558d8dc1092c431312848cbb58fb01e41",
+    "target": "ed3ac19558d8dc1092c431312848cbb58fb01e41",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-f8aa80e4c40cf1a5d30e85d13937f3fcf06d8237",
+    "target": "f8aa80e4c40cf1a5d30e85d13937f3fcf06d8237",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  }
+]
