@@ -1,0 +1,20 @@
+name = "SunnyMods"
+summary = "A Mods list with icons, search, filters, and a Settings button for each mod."
+description = """
+A Mods list with icons, search, filters, and a Settings button for each mod.
+
+SunnyMods takes over the title screen's Mods button and Options > Mods. Each row shows the mod's own icon, its version, authors, licence and links, the full description, the keys it adds, and a Settings button for its settings page. Search by name, @author, or #id, filter to Running, Settings, or Issues, and sort by name, author, or settings first. Browse Mods, the mods folder, and Sunrise's own list stay one click away.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/sunnymods"
+issues = "https://github.com/Zekrenlight/sunnymods/issues"
+icon = "icon.png"
+categories = [
+    "utility",
+    "management",
+]
+
+[[screenshots]]
+path = "mods-list.png"
+caption = "The Mods list, with icons in the sidebar and a selected mod's full description."
