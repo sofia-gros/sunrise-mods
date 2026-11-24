@@ -1,23 +1,11 @@
 [[release]]
-version = "1.4.3"
-package = "b99877eb0c33c3dde6c77d2cd30b8c864860cf50dad21bb19316d183d8515518"
+version = "1.4.5"
+package = "cf626fa8a2c5f8baf770b93342a99ffba22c533240c70a90ef6fc49dc6da01b0"
 rules = 2
 
 [release.fits]
-dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
 dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
 dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
 
 [release.does_not_fit]
-
-[[release]]
-version = "1.4.4"
-package = "d6a5372e3ff278fdfeb8a8001000267d274cf710896b060afae931ea1191f084"
-rules = 2
-
-[release.fits]
 dev-2026-11-22-7cfdf81 = "578f0ff851eaaf7cba3aece2bc46e19d1203ff134e19caed2d6cd21e11988e71"
-dev-2026-11-23-ebd2d22 = "8a4ab46d695b1e827a97bf289380d21be40055ca983fbc78e296afa1f8b348e9"
-dev-2026-11-24-f8aa80e = "446f8af34d677ddc1072cf4c985847cf5c48f884f7ec75ab5640c23254e04948"
-
-[release.does_not_fit]
