@@ -1,0 +1,29 @@
+name = "SuperCam"
+summary = "Hold-to-zoom, a free camera, and camera motion with optional breathing hands."
+description = """
+Hold-to-zoom, a free camera, and camera motion with optional breathing hands.
+
+Hold C to zoom smoothly, and scroll to adjust the amount. F7 toggles a free camera that flies while your player stays put, with optional collision, a glide, and a view of yourself. Camera motion can lean into strafes and turns, dip when you run, jump, or fall, sway gently when you stand still, and shake from nearby explosions and lightning. An FOV slider uses the game's own FOV, and breathing hands are optional. Every part has its own switch.
+"""
+authors = ["Zekrenlight"]
+license = "MIT"
+homepage = "https://github.com/Zekrenlight/supercam"
+issues = "https://github.com/Zekrenlight/supercam/issues"
+icon = "icon.png"
+categories = ["utility"]
+
+[[screenshots]]
+path = "zoom-settings.png"
+caption = "Zoom settings, including amount, scroll to adjust, and a slower mouse."
+
+[[screenshots]]
+path = "freecam-settings.png"
+caption = "Free camera settings, including speed, a glide, and showing yourself."
+
+[[screenshots]]
+path = "motion-settings.png"
+caption = "Camera motion settings for leans, speed dip, idle sway, and shakes."
+
+[[screenshots]]
+path = "view-settings.png"
+caption = "View settings for FOV, breathing hands, and the accent colour."
