@@ -1,0 +1,9 @@
+id = "FpnTqSPx"
+slug = "tokimis-toolshed"
+mod = "tokimistoolshed"
+kind = "native-mod"
+owners = ["arismoko"]
+repository = 1468300372
+path = "tokimistoolshed"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml"
+registered = "2026-11-25"
