@@ -190,5 +190,12 @@
     "outcome": {
       "declined": "not a game build"
     }
+  },
+  {
+    "tag": "sdk-ffb8601b02db279261c4e9bbfd977b4b2e3892ab",
+    "target": "ffb8601b02db279261c4e9bbfd977b4b2e3892ab",
+    "outcome": {
+      "declined": "not a game build"
+    }
   }
 ]
