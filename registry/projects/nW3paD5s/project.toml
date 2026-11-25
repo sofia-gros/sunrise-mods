@@ -1,0 +1,9 @@
+id = "nW3paD5s"
+slug = "toms-simple-storage"
+mod = "toms_storage"
+kind = "native-mod"
+owners = ["arismoko"]
+repository = 1468300372
+path = "toms_storage"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml"
+registered = "2026-11-25"
