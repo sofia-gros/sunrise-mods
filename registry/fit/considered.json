@@ -40,6 +40,16 @@
     }
   },
   {
+    "tag": "dev-2026-11-25-6a02076",
+    "target": "6a02076f89cd189d74d63492dda5b023fa85a38f",
+    "outcome": {
+      "offered": {
+        "id": "dev-2026-11-25-6a02076",
+        "commit": "6a02076f89cd189d74d63492dda5b023fa85a38f"
+      }
+    }
+  },
+  {
     "tag": "dev-2026-11-25-bdad86d",
     "target": "bdad86d2d398ff9293002d2dc08702822aea7265",
     "outcome": {
@@ -141,6 +151,13 @@
   {
     "tag": "sdk-68b51161354df882c903467bd891a7996e08c11f",
     "target": "68b51161354df882c903467bd891a7996e08c11f",
+    "outcome": {
+      "declined": "not a game build"
+    }
+  },
+  {
+    "tag": "sdk-6a02076f89cd189d74d63492dda5b023fa85a38f",
+    "target": "6a02076f89cd189d74d63492dda5b023fa85a38f",
     "outcome": {
       "declined": "not a game build"
     }

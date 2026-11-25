@@ -4,6 +4,7 @@ package = "16f4d93725781ca09c72ab05b6b3eb58ed372f25c9a6be5485a261e4eb4a917b"
 rules = 2
 
 [release.fits]
+dev-2026-11-25-6a02076 = "19167503f871e6239f30eec64438723ca5bcfb2efcca7c0813c0ad3a5f3be305"
 dev-2026-11-25-bdad86d = "b4094989531255ad053e39e5011d2ced670ef845dc09dbe15dddaa49f569dc81"
 
 [release.does_not_fit]
