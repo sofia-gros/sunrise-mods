@@ -1,0 +1,9 @@
+id = "qpVTLyzT"
+slug = "clutter"
+mod = "clutter"
+kind = "native-mod"
+owners = ["arismoko"]
+repository = 1468300372
+path = "clutter"
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml"
+registered = "2026-11-25"
