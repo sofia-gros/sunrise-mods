@@ -40,6 +40,16 @@
     }
   },
   {
+    "tag": "dev-2026-11-25-bdad86d",
+    "target": "bdad86d2d398ff9293002d2dc08702822aea7265",
+    "outcome": {
+      "offered": {
+        "id": "dev-2026-11-25-bdad86d",
+        "commit": "bdad86d2d398ff9293002d2dc08702822aea7265"
+      }
+    }
+  },
+  {
     "tag": "nightly",
     "target": "94256510f74e6843754e0a93fd9e4da7e45b1056",
     "outcome": {
