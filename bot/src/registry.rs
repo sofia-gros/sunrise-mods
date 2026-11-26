@@ -87,6 +87,14 @@ fn load_inner(checkout: &Path, generated: bool) -> Result<Registry, Vec<String>>
     let revoked = tree
         .toml::<Revocations>(&revoked_path, top.remove(OsStr::new("revoked.toml")))
         .map_or_else(Vec::new, |value| value.revoked);
+    // Absent in a registry with no correction to make.
+    let misfits_path = root.join("misfits.toml");
+    let misfits = match top.remove(OsStr::new("misfits.toml")) {
+        None => Vec::new(),
+        entry => tree
+            .toml::<Misfits>(&misfits_path, entry)
+            .map_or_else(Vec::new, |value| value.misfit),
+    };
     let release_workflow = tree.toml::<ReleaseWorkflow>(
         &root.join("release-workflow.toml"),
         top.remove(OsStr::new("release-workflow.toml")),
@@ -377,6 +385,31 @@ fn load_inner(checkout: &Path, generated: bool) -> Result<Registry, Vec<String>>
                 fits = read_fits(&mut tree, &fit_path, contents);
             }
             _ => tree.problem(&fit_path, "expected the generated fit directory"),
+        }
+    }
+    // The bot compares a package with a build's surface by its own pinned Sunrise crates, so it
+    // cannot see what only that build's own tools refuse. A row here turns such a verdict over,
+    // in the published index and, at the next judging run, in the store.
+    for row in &misfits {
+        if !projects
+            .get(&row.project)
+            .is_some_and(|entry: &ProjectEntry| entry.releases.contains_key(&row.version))
+        {
+            tree.problem(
+                &misfits_path,
+                format!(
+                    "no release {} of project {}",
+                    row.version,
+                    row.project.as_str()
+                ),
+            );
+        }
+        if let Some(stored) = fits
+            .get_mut(&row.project)
+            .and_then(|rows| rows.get_mut(&row.version))
+            && let Some(surface) = stored.fits.remove(&row.build)
+        {
+            stored.does_not_fit.insert(row.build.clone(), surface);
         }
     }
     let problems = tree.finish();

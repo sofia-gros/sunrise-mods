@@ -1,0 +1,25 @@
+# Builds a release does not fit although the registry bot's own comparison says it does.
+# Each row says why, and goes when its release is no longer listed for that build.
+
+# These packages carry `page.toml` and `page/` at their root. The mod tool that ships with
+# nightly-2026-11-20-9425651 refuses any package holding them ("unexpected package path:
+# page.toml"), and a profile on that build then gets no verdict for any of its mods.
+[[misfit]]
+project = "0NGqlII7"
+version = "1.0.0"
+build = "nightly-2026-11-20-9425651"
+
+[[misfit]]
+project = "0NGqlII7"
+version = "1.0.1"
+build = "nightly-2026-11-20-9425651"
+
+[[misfit]]
+project = "0NGqlII7"
+version = "1.0.2"
+build = "nightly-2026-11-20-9425651"
+
+[[misfit]]
+project = "iduZWDER"
+version = "0.5.5"
+build = "nightly-2026-11-20-9425651"

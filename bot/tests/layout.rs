@@ -13,6 +13,7 @@ const REPOSITORY_2: &str = "registry/repositories/987654321.toml";
 const WORKFLOW: &str = "registry/release-workflow.toml";
 const CATEGORIES: &str = "registry/categories.toml";
 const REVOKED: &str = "registry/revoked.toml";
+const MISFITS: &str = "registry/misfits.toml";
 const FIT: &str = "registry/fit/Ab3dE9xQ.toml";
 const PROJECT: &str = "registry/projects/Ab3dE9xQ/project.toml";
 const PROJECT_2: &str = "registry/projects/Zz91kLmN/project.toml";
@@ -948,6 +949,34 @@ fn verdicts_for_a_build_no_longer_offered_are_ignored() {
         release["does_not_fit"],
         serde_json::json!(["dev-2026-11-23-abcdef0"])
     );
+}
+
+/// `registry/misfits.toml` turns over a stored "fits" the bot's own comparison cannot get right.
+#[test]
+fn a_misfit_row_publishes_a_stored_fit_as_not_fitting() {
+    let temp = fit_checkout();
+    fs::write(
+        temp.path().join(MISFITS),
+        "[[misfit]]\nproject = \"Ab3dE9xQ\"\nversion = \"1.2.0\"\nbuild = \"26.3-0.1.1\"\n",
+    )
+    .unwrap();
+    let release = &index(temp.path())["projects"][0]["releases"][0];
+    assert_eq!(release["fits"], serde_json::json!(["26.3-0.1.0"]));
+    assert_eq!(
+        release["does_not_fit"],
+        serde_json::json!(["26.3-0.1.1", "dev-2026-11-23-abcdef0"])
+    );
+}
+
+#[test]
+fn a_misfit_row_names_a_listed_release() {
+    let temp = checkout();
+    fs::write(
+        temp.path().join(MISFITS),
+        "[[misfit]]\nproject = \"Ab3dE9xQ\"\nversion = \"9.9.9\"\nbuild = \"26.3-0.1.1\"\n",
+    )
+    .unwrap();
+    rejected(temp.path(), MISFITS, "no release 9.9.9 of project Ab3dE9xQ");
 }
 
 #[test]

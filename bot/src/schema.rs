@@ -391,6 +391,22 @@ pub struct FitRelease {
 
 #[derive(Deserialize)]
 #[serde(deny_unknown_fields)]
+pub struct Misfits {
+    #[serde(default)]
+    pub misfit: Vec<Misfit>,
+}
+
+/// A build a release does not fit although the bot's own comparison says it does.
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
+pub struct Misfit {
+    pub project: ProjectId,
+    pub version: Version,
+    pub build: BuildName,
+}
+
+#[derive(Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Revocations {
     #[serde(default)]
     pub revoked: Vec<Revocation>,

@@ -75,6 +75,7 @@ What a listed project agrees to is in [MOD-POLICY.md](MOD-POLICY.md).
 | `registry/categories.toml` | The categories a page may name |
 | `registry/release-workflow.toml` | The shared release workflow every release must be signed by |
 | `registry/revoked.toml` | Releases and projects taken down |
+| `registry/misfits.toml` | Builds a release does not fit although the bot's comparison says it does |
 | `registry/index-key.pub` | The public key the published index is signed for |
 | `bot/` | The registry bot: checks, the release watcher, the index builder |
 | `scanner/` | The first-pass scanner whose flags a release review reads |

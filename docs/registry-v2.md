@@ -199,6 +199,14 @@ The release check judges a proposed release the same way on the builds offered a
 will appear before merging. It stores nothing: the job above judges the release again after the
 merge. A release that cannot be judged on an offered build fails its check.
 
+### `registry/misfits.toml`
+
+The bot compares a package with a build's surface by its own pinned Sunrise crates, so it cannot see
+what only that build's own mod tool refuses. Maintainers correct such a verdict with a `[[misfit]]`
+row of `project`, `version` and `build`, under a comment that says why: the index then lists the
+build under `does_not_fit` for that release, and the next judging run stores it so. A row must name
+a listed release. The file may be absent.
+
 ### `registry/revoked.toml`
 
 Maintainers record `[[revoked]]` rows with `project`, `reason`, `date`, and optional `sha256`. Without
