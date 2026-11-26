@@ -30,6 +30,11 @@
     "surface": "b4094989531255ad053e39e5011d2ced670ef845dc09dbe15dddaa49f569dc81"
   },
   {
+    "id": "dev-2026-11-26-ba1f24e",
+    "commit": "ba1f24e4ad41246b558230aa665539dc768b1287",
+    "surface": "c38d21429245a14e066a9e8b58f7a9557cb3d145394fd2311d827aac823174ee"
+  },
+  {
     "id": "nightly-2026-11-16-234db8d",
     "commit": "234db8df6210165318b2b604dea50275357bfaeb",
     "surface": "c6798d3f753b6d3e70ab6d4c4ffb70f070b484f0a435efcdb2a7a8a68fa7ddda"
