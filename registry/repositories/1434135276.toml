@@ -1,0 +1,5 @@
+name = "sofia-gros/horizon-mods"
+
+[[package]]
+path = "pluto-lib-sunrise/mod"
+project = "plutolib"
