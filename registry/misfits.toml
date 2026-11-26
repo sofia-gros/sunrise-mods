@@ -1,5 +1,6 @@
 # Builds a release does not fit although the registry bot's own comparison says it does.
-# Each row says why, and goes when its release is no longer listed for that build.
+# Each group of rows says why. A row must name a listed release; one for a build that is no
+# longer offered does nothing and should be removed.
 
 # These packages carry `page.toml` and `page/` at their root. The mod tool that ships with
 # nightly-2026-11-20-9425651 refuses any package holding them ("unexpected package path:
