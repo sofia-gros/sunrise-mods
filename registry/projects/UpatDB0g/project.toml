@@ -1,0 +1,9 @@
+id = "UpatDB0g"
+slug = "guideme"
+mod = "guideme"
+kind = "native-mod"
+owners = ["Joeypc6"]
+repository = 1472779719
+path = "."
+workflow = "sunrise-org/sunrise-mods/.github/workflows/release.yml"
+registered = "2026-11-26"
