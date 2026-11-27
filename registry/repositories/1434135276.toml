@@ -3,3 +3,11 @@ name = "sofia-gros/horizon-mods"
 [[package]]
 path = "pluto-lib-sunrise/mod"
 project = "plutolib"
+
+[[package]]
+path = "pipes-sunrise/mod"
+project = "PipesMod"
+
+[[package]]
+path = "stellarsky-sunrise/mod"
+project = "StellarS"
